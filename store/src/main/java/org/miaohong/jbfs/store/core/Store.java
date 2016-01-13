@@ -1,5 +1,6 @@
 package org.miaohong.jbfs.store.core;
 
+import org.apache.zookeeper.ZooKeeper;
 import org.miaohong.jbfs.store.config.StoreConfig;
 import org.miaohong.jbfs.zookeeper.conn.ZKConn;
 
@@ -10,15 +11,20 @@ import java.io.IOException;
  */
 public class Store {
     private StoreConfig storeConfig = StoreConfig.getInstance();
-    private ZKConn zk = null;
+    private ZooKeeper zk = null;
 
-    public static void main(String[] args) {
+
+    private void init() {
         try {
             zk = ZKConn.getZK(StoreConfig._instance.getZookeeperAddrs(),
                     StoreConfig._instance.getZookeeperTimeout());
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+
 
 
     }
