@@ -1,6 +1,5 @@
 package org.miaohong.jbfs.store.config;
 
-import com.google.gson.JsonSyntaxException;
 import org.apache.commons.io.IOUtils;
 
 import java.io.FileInputStream;
@@ -79,7 +78,7 @@ public class StoreConfig {
                     _instance.storeVolumeIndex = (String) propertie.get(key);
                 } else if (key.equals("store.free_volume_index")) {
                     _instance.storeFreeVolumeIndex = (String) propertie.get(key);
-                }else if (key.equals("store.server_id")) {
+                } else if (key.equals("store.server_id")) {
                     _instance.storeServerId = (String) propertie.get(key);
                 } else if (key.equals("zookeeper.addrs")) {
                     _instance.zookeeperAddrs = (String) propertie.get(key);
@@ -99,7 +98,7 @@ public class StoreConfig {
     }
 
     public String getValue(String key) {
-        if(propertie.containsKey(key)){
+        if(propertie.containsKey(key)) {
             String value = propertie.getProperty(key);
             return value;
         } else {
