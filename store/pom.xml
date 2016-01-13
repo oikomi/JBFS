@@ -14,6 +14,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.miaohong.jbfs.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.5</version>
@@ -24,6 +30,8 @@
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
         </dependency>
+
+
 
     </dependencies>
 

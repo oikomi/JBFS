@@ -9,8 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>zookeeper</artifactId>
+    <groupId>org.miaohong.jbfs.zookeeper</groupId>
+    <version>1.0</version>
 
+    <artifactId>zookeeper</artifactId>
 
     <dependencies>
         <dependency>

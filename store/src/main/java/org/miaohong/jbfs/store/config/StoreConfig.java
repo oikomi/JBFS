@@ -18,10 +18,28 @@ public class StoreConfig {
 
     private static final String configFilePath = "config/store_config.properties";
 
-    private static StoreConfig _instance;
+    public static StoreConfig _instance;
 
     private static String storeVolumeIndex;
     private static String storeFreeVolumeIndex;
+    private static String zookeeperAddrs;
+    private static int zookeeperTimeout;
+
+    public static int getZookeeperTimeout() {
+        return zookeeperTimeout;
+    }
+
+    public static void setZookeeperTimeout(int zookeeperTimeout) {
+        StoreConfig.zookeeperTimeout = zookeeperTimeout;
+    }
+
+    public static String getZookeeperAddrs() {
+        return zookeeperAddrs;
+    }
+
+    public static void setZookeeperAddrs(String zookeeperAddrs) {
+        StoreConfig.zookeeperAddrs = zookeeperAddrs;
+    }
 
     public static String getStoreFreeVolumeIndex() {
         return storeFreeVolumeIndex;
@@ -52,6 +70,10 @@ public class StoreConfig {
                     _instance.storeVolumeIndex = (String) propertie.get(key);
                 } else if (key.equals("store.free_volume_index")) {
                     _instance.storeFreeVolumeIndex = (String) propertie.get(key);
+                } else if (key.equals("zookeeper.addrs")) {
+                    _instance.zookeeperAddrs = (String) propertie.get(key);
+                } else if (key.equals("zookeeper.timeout")) {
+                    _instance.zookeeperTimeout = (Integer) propertie.get(key);
                 }
             }
         } catch (JsonSyntaxException e) {
