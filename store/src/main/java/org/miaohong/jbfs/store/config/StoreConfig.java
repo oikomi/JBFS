@@ -87,8 +87,6 @@ public class StoreConfig {
                     _instance.zookeeperTimeout = Integer.parseInt((String)propertie.get(key));
                 }
             }
-        } catch (JsonSyntaxException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -118,6 +116,5 @@ public class StoreConfig {
         StoreConfig storeConfig = StoreConfig.getInstance();
 
         System.out.println(storeConfig.getStoreVolumeIndex());
-
     }
 }

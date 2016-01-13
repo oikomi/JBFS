@@ -7,24 +7,26 @@ import org.miaohong.jbfs.zookeeper.conn.ZKConn;
 import java.io.IOException;
 
 /**
- * Created by baidu on 16/1/13.
+ * Created by miaohong on 16/1/13.
  */
 public class Store {
     private StoreConfig storeConfig = StoreConfig.getInstance();
     private ZooKeeper zk = null;
 
+    public Store() {
+        init();
+    }
+
     private void init() {
         try {
-            zk = ZKConn.getZK(StoreConfig._instance.getZookeeperAddrs(),
-                    StoreConfig._instance.getZookeeperTimeout());
+            zk = ZKConn.getZK(storeConfig.getZookeeperAddrs(), storeConfig.getZookeeperTimeout());
         } catch (IOException e) {
             e.printStackTrace();
+            System.exit(-1);
         }
     }
 
     public static void main(String[] args) {
         Store store = new Store();
-        store.init();
-
     }
 }
