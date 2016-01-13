@@ -1,5 +1,7 @@
 package org.miaohong.jbfs.store.block;
 
+import java.nio.ByteBuffer;
+
 /**
  * Created by miaohong on 16/1/13.
  */
@@ -8,7 +10,7 @@ package org.miaohong.jbfs.store.block;
 //  --------------
 // | magic number |   ---- 4bytes
 // | version      |   ---- 1byte
-// | padding      |   ---- aligned with needle padding size (for furtuer  used)
+// | padding      |   ---- aligned with needle padding size (for future used)
 //  --------------
 //
 
@@ -17,9 +19,18 @@ public class SupperBlock {
     private byte ver;
     private byte[] padding;
 
+    public SupperBlock() {
+
+    }
 
 
     public void Scan() {
+
+    }
+
+
+    public void writeSupperBlockMeta() {
+        ByteBuffer buffer = ByteBuffer.allocate(256);
 
     }
 }

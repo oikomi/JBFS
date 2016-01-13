@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6160e83-6893-43b4-8f8b-85eb42f7097c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/Const.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__avalon_framework_avalon_framework_4_1_3.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_6_3.xml" />
@@ -20,12 +21,13 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_2_3_RELEASE.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_2_3_RELEASE.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_2_3_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/store/src/main/resources/config/springmvc.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/store/web/WEB-INF/web.xml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/JBFS.iml" afterPath="$PROJECT_DIR$/.idea/JBFS.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java" afterPath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/config/StoreConfig.java" afterPath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/config/StoreConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/SupperBlock.java" afterPath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/SupperBlock.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java" afterPath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/directory.iml" afterPath="$PROJECT_DIR$/directory/directory.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
@@ -96,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/core/Store.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#389#390#0" expanded="true" />
@@ -108,31 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/store/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Volume.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StoreAdminController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StoreAdminController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2614897">
-              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -160,11 +142,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SupperBlock.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SupperBlock.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/SupperBlock.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.28526148">
+              <caret line="12" column="72" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Const.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/Const.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -196,7 +188,6 @@
         <option value="$PROJECT_DIR$/zookeeper/pom.xml" />
         <option value="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKConn.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/needle/Needle.java" />
-        <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/SupperBlock.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/core/Store.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/engine/Engine.java" />
         <option value="$PROJECT_DIR$/store/src/main/resources/config/store_config.properties" />
@@ -208,6 +199,8 @@
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/StoreServer.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreServer.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java" />
+        <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/Const.java" />
+        <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/SupperBlock.java" />
       </list>
     </option>
   </component>
@@ -1183,12 +1176,12 @@
       <workItem from="1452681728184" duration="47000" />
       <workItem from="1452681796176" duration="25000" />
       <workItem from="1452681838991" duration="240000" />
-      <workItem from="1452682109225" duration="280000" />
+      <workItem from="1452682109225" duration="2229000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11897000" />
+    <option name="totallyTimeSpent" value="13846000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1239" height="777" extended-state="6" />
@@ -1234,14 +1227,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/store/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1628,22 +1613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/engine/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/SupperBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/store/src/main/resources/config/store_config.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1691,40 +1660,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/core/Store.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#709#710#0" expanded="true" />
-            <element signature="e#750#751#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/store/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.62085307">
           <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/store/src/main/resources/config/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24834438">
-          <caret line="10" column="72" selection-start-line="10" selection-start-column="72" selection-end-line="10" selection-end-column="72" />
           <folding />
         </state>
       </provider>
@@ -1737,7 +1676,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.429477">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07131537">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/core/Store.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#750#751#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/src/main/resources/config/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24834438">
+          <caret line="10" column="72" selection-start-line="10" selection-start-column="72" selection-end-line="10" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/engine/Engine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
@@ -1745,13 +1732,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java">
+    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/Const.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2614897">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/SupperBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28526148">
+          <caret line="12" column="72" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
