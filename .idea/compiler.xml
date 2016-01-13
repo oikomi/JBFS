@@ -25,6 +25,7 @@
         <module name="directory" />
         <module name="pitchfork" />
         <module name="store" />
+        <module name="zookeeper" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
@@ -32,6 +33,7 @@
       <module name="JBFS" target="1.5" />
       <module name="pitchfork" target="1.5" />
       <module name="store" target="1.5" />
+      <module name="zookeeper" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

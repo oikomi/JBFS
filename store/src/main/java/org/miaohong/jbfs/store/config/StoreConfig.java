@@ -5,27 +5,55 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Properties;
+import java.util.Set;
 
 /**
- * Created by baidu on 16/1/13.
+ * Created by miaohong on 16/1/13.
  */
 public class StoreConfig {
     private static ClassLoader classLoader = StoreConfig.class.getClassLoader();
-    private static Properties propertie;
+    private static Properties propertie = new Properties();
 
     private static final String configFilePath = "config/store_config.properties";
 
     private static StoreConfig _instance;
 
+    private static String storeVolumeIndex;
+    private static String storeFreeVolumeIndex;
+
+    public static String getStoreFreeVolumeIndex() {
+        return storeFreeVolumeIndex;
+    }
+
+    public static void setStoreFreeVolumeIndex(String storeFreeVolumeIndex) {
+        StoreConfig.storeFreeVolumeIndex = storeFreeVolumeIndex;
+    }
+
+    public static String getStoreVolumeIndex() {
+        return storeVolumeIndex;
+    }
+
+    public static void setStoreVolumeIndex(String storeVolumeIndex) {
+        StoreConfig.storeVolumeIndex = storeVolumeIndex;
+    }
 
     static {
-        //Gson gson = new Gson();
         FileInputStream configInputStream = null;
         try {
             configInputStream = new FileInputStream(classLoader.getResource(configFilePath).getFile());
             propertie.load(configInputStream);
-            //_instance = gson.fromJson(IOUtils.toString(configIn), StoreConfig.class);
+
+            Set keyValue = propertie.keySet();
+            for (Iterator it = keyValue.iterator(); it.hasNext();) {
+                String key = (String) it.next();
+                if (key.equals("store.volume_index")) {
+                    _instance.storeVolumeIndex = (String) propertie.get(key);
+                } else if (key.equals("store.free_volume_index")) {
+                    _instance.storeFreeVolumeIndex = (String) propertie.get(key);
+                }
+            }
         } catch (JsonSyntaxException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -34,11 +62,10 @@ public class StoreConfig {
             IOUtils.closeQuietly(configInputStream);
         }
     }
-//
+
     public static StoreConfig getInstance() {
         return _instance;
     }
-
 
     public String getValue(String key) {
         if(propertie.containsKey(key)){
@@ -55,6 +82,9 @@ public class StoreConfig {
 
 
     public static void main(String[] args) {
-        StoreConfig.getInstance();
+        StoreConfig storeConfig = StoreConfig.getInstance();
+
+        System.out.println(storeConfig.getStoreVolumeIndex());
+
     }
 }

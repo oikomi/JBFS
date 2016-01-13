@@ -12,6 +12,7 @@
         <module>store</module>
         <module>directory</module>
         <module>pitchfork</module>
+        <module>zookeeper</module>
     </modules>
 
 
