@@ -13,7 +13,6 @@ public class Store {
     private StoreConfig storeConfig = StoreConfig.getInstance();
     private ZooKeeper zk = null;
 
-
     private void init() {
         try {
             zk = ZKConn.getZK(StoreConfig._instance.getZookeeperAddrs(),
@@ -24,8 +23,8 @@ public class Store {
     }
 
     public static void main(String[] args) {
-
-
+        Store store = new Store();
+        store.init();
 
     }
 }

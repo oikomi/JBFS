@@ -22,6 +22,7 @@ public class StoreConfig {
 
     private static String storeVolumeIndex;
     private static String storeFreeVolumeIndex;
+    private static String storeServerId;
     private static String zookeeperAddrs;
     private static int zookeeperTimeout;
 
@@ -57,6 +58,14 @@ public class StoreConfig {
         StoreConfig.storeVolumeIndex = storeVolumeIndex;
     }
 
+    public static String getStoreServerId() {
+        return storeServerId;
+    }
+
+    public static void setStoreServerId(String storeServerId) {
+        StoreConfig.storeServerId = storeServerId;
+    }
+
     static {
         FileInputStream configInputStream = null;
         try {
@@ -70,10 +79,12 @@ public class StoreConfig {
                     _instance.storeVolumeIndex = (String) propertie.get(key);
                 } else if (key.equals("store.free_volume_index")) {
                     _instance.storeFreeVolumeIndex = (String) propertie.get(key);
+                }else if (key.equals("store.server_id")) {
+                    _instance.storeServerId = (String) propertie.get(key);
                 } else if (key.equals("zookeeper.addrs")) {
                     _instance.zookeeperAddrs = (String) propertie.get(key);
                 } else if (key.equals("zookeeper.timeout")) {
-                    _instance.zookeeperTimeout = (Integer) propertie.get(key);
+                    _instance.zookeeperTimeout = Integer.parseInt((String)propertie.get(key));
                 }
             }
         } catch (JsonSyntaxException e) {
