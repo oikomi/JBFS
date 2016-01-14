@@ -1,6 +1,7 @@
 package org.miaohong.jbfs.store.block;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -28,15 +29,34 @@ public class SupperBlock {
 
     public SupperBlock(String supperBlockFilePath) {
         this.supperBlockFilePath = supperBlockFilePath;
+        init();
     }
 
+    private void init() {
+        try {
+            fc = new FileOutputStream(supperBlockFilePath, true).getChannel();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            writeSupperBlockHeader();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fc != null)
+                    fc.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     public void scan() {
 
     }
 
-    public void writeSupperBlockHeader() throws IOException {
-        fc = new FileOutputStream(supperBlockFilePath, true).getChannel();
+    private void writeSupperBlockHeader() throws IOException {
         fc.write(ByteBuffer.wrap(magic));
         fc.write(ByteBuffer.wrap(new byte[]{ver}));
         fc.write(ByteBuffer.wrap(padding));

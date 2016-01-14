@@ -17,6 +17,8 @@ public class Volume {
     public Volume(int id, String bFile, String iFile) {
         this.supperBlock = new SupperBlock(bFile);
         this.index = new Index(iFile);
+
+
     }
 
 
