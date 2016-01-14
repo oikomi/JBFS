@@ -24,25 +24,19 @@ public class SupperBlock {
     private byte ver = (byte)0x01;
     private byte[] padding = new byte[Const.SUPER_BLOCK_PADDING_SIZE];
     private String supperBlockFilePath;
+    private FileChannel fc = null;
 
     public SupperBlock(String supperBlockFilePath) {
         this.supperBlockFilePath = supperBlockFilePath;
-        //this.supperBlockFilePath
     }
 
 
-    public void Scan() {
+    public void scan() {
 
     }
 
     public void writeSupperBlockHeader() throws IOException {
-        FileChannel fc = new FileOutputStream(supperBlockFilePath).getChannel();
-        ByteBuffer buffer = ByteBuffer.allocate(Const.SUPER_BLOCK_HEADER_SIZE).order(ByteOrder.BIG_ENDIAN);
-        buffer.put(magic);
-        buffer.put(ver);
-        buffer.put(padding);
-        //System.out.println(buffer.get(7));
-        //fc.write(buffer);
+        fc = new FileOutputStream(supperBlockFilePath, true).getChannel();
         fc.write(ByteBuffer.wrap(magic));
         fc.write(ByteBuffer.wrap(new byte[]{ver}));
         fc.write(ByteBuffer.wrap(padding));
