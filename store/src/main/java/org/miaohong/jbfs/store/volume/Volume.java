@@ -20,7 +20,5 @@ public class Volume {
     }
 
 
-    public void addFreeVolume() {
 
-    }
 }

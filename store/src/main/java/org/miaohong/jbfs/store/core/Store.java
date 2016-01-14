@@ -40,12 +40,17 @@ public class Store {
 
 
     public void addFreeVolume(int n, String bDir, String iDir) {
-        
+        for (int i = 0; i < n; i++) {
+            freeId ++;
+
+            //Volume v = new Volume(Const.VOLUME_FREE_ID, );
+        }
     }
 
     public static void main(String[] args) {
         Store store = new Store();
 
+        store.addFreeVolume(1, "/tmp", "/tmp");
         SupperBlock supperBlock = new SupperBlock("/tmp/1.block");
         try {
             supperBlock.writeSupperBlockHeader();
