@@ -1,6 +1,7 @@
 package org.miaohong.jbfs.store.core;
 
 import org.apache.zookeeper.ZooKeeper;
+import org.miaohong.jbfs.store.block.SupperBlock;
 import org.miaohong.jbfs.store.config.StoreConfig;
 import org.miaohong.jbfs.zookeeper.conn.ZKConn;
 
@@ -28,5 +29,12 @@ public class Store {
 
     public static void main(String[] args) {
         Store store = new Store();
+
+        SupperBlock supperBlock = new SupperBlock("/tmp/1.block");
+        try {
+            supperBlock.writeSupperBlockHeader();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

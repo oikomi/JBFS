@@ -1,6 +1,11 @@
 package org.miaohong.jbfs.store.block;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.channels.FileChannel;
 
 /**
  * Created by miaohong on 16/1/13.
@@ -15,12 +20,14 @@ import java.nio.ByteBuffer;
 //
 
 public class SupperBlock {
-    private byte[] magic;
-    private byte ver;
-    private byte[] padding;
+    private byte[] magic = {(byte)0xab, (byte)0xcd, (byte)0xef, (byte)0x00};
+    private byte ver = (byte)0x01;
+    private byte[] padding = new byte[Const.SUPER_BLOCK_PADDING_SIZE];
+    private String supperBlockFilePath;
 
-    public SupperBlock() {
-
+    public SupperBlock(String supperBlockFilePath) {
+        this.supperBlockFilePath = supperBlockFilePath;
+        //this.supperBlockFilePath
     }
 
 
@@ -28,9 +35,17 @@ public class SupperBlock {
 
     }
 
-
-    public void writeSupperBlockMeta() {
-        ByteBuffer buffer = ByteBuffer.allocate(256);
-
+    public void writeSupperBlockHeader() throws IOException {
+        FileChannel fc = new FileOutputStream(supperBlockFilePath).getChannel();
+        ByteBuffer buffer = ByteBuffer.allocate(Const.SUPER_BLOCK_HEADER_SIZE).order(ByteOrder.BIG_ENDIAN);
+        buffer.put(magic);
+        buffer.put(ver);
+        buffer.put(padding);
+        //System.out.println(buffer.get(7));
+        //fc.write(buffer);
+        fc.write(ByteBuffer.wrap(magic));
+        fc.write(ByteBuffer.wrap(new byte[]{ver}));
+        fc.write(ByteBuffer.wrap(padding));
+        fc.close();
     }
 }
