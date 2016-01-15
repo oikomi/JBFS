@@ -9,4 +9,7 @@ public class Const {
     public static final String VOLUME_INDEX_EXT   = ".idx";
 
 
+    public static final int FILE_START_POS = 0;
+
+
 }
