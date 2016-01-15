@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -17,7 +18,16 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/store/v1/admin/")
 public class StoreAdminController {
-    private Store store = new Store();
+    private static Store store = null;
+
+    static {
+        store = new Store();
+    }
+
+//    @PostConstruct
+//    public void init() {
+//        store = new Store();
+//    }
 
     @RequestMapping(value = "/add_free_volume", method = RequestMethod.POST)
     public void addFreeVolume(@RequestParam("n") int n, @RequestParam("bdir") String bdir,

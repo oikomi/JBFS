@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Created by miaohong on 16/1/13.
@@ -37,9 +38,7 @@ public class Store {
     private FileChannel rvfc = null;
     private FileChannel rfvfc = null;
 
-
-    private int freeId;
-
+    private AtomicLong freeId = new AtomicLong(0);
 
     public Store() {
         init();
@@ -68,14 +67,17 @@ public class Store {
     }
 
     private void parseFreeVolumeIndex() {
-        String buf = null;
+        //String buf = null;
+        System.out.println(storeConfig.storeFreeVolumeIndex);
+        List<String> bufLines = new ArrayList<String>();
         try {
-            buf = IOUtils.toString(new FileInputStream(storeConfig.storeFreeVolumeIndex));
+            bufLines = IOUtils.readLines(new FileInputStream(storeConfig.storeFreeVolumeIndex));
+            //buf = IOUtils.toString(new FileInputStream(storeConfig.storeFreeVolumeIndex));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        System.out.println(buf);
+        System.out.println(bufLines);
 
     }
 
@@ -99,10 +101,10 @@ public class Store {
 
     public void addFreeVolume(int n, String bDir, String iDir) {
         for (int i = 0; i < n; i++) {
-            freeId ++;
+            freeId.incrementAndGet();
 
-            Volume v = new Volume(Const.VOLUME_FREE_ID, bDir + Const.FREE_VOLUME_PREFIX + freeId,
-                iDir + Const.FREE_VOLUME_PREFIX + freeId + Const.VOLUME_INDEX_EXT);
+            Volume v = new Volume(Const.VOLUME_FREE_ID, bDir + Const.FREE_VOLUME_PREFIX + freeId.get(),
+                iDir + Const.FREE_VOLUME_PREFIX + freeId.get() + Const.VOLUME_INDEX_EXT);
 
 
             freeVolumes.add(v);
@@ -110,12 +112,4 @@ public class Store {
             saveFreeVolumeIndex();
         }
     }
-
-//    public static void main(String[] args) {
-//        Store store = new Store();
-//
-//        store.addFreeVolume(1, "/tmp", "/tmp");
-//        SupperBlock supperBlock = new SupperBlock("/tmp/1.block");
-//
-//    }
 }
