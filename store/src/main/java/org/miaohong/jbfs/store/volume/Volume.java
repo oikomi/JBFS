@@ -21,6 +21,23 @@ public class Volume {
 
     }
 
+    public SupperBlock getSupperBlock() {
+        return supperBlock;
+    }
+
+    public void setSupperBlock(SupperBlock supperBlock) {
+        this.supperBlock = supperBlock;
+    }
+
+    public Index getIndex() {
+        return index;
+    }
+
+    public void setIndex(Index index) {
+        this.index = index;
+    }
+
+
 
 
 }

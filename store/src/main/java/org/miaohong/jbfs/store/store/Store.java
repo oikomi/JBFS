@@ -6,7 +6,13 @@ import org.miaohong.jbfs.store.config.StoreConfig;
 import org.miaohong.jbfs.store.volume.Volume;
 import org.miaohong.jbfs.zookeeper.conn.ZKConn;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +28,12 @@ public class Store {
     private Map<Integer, Volume> volumes = new HashMap<Integer, Volume>();
     private List<Volume> freeVolumes = new ArrayList<Volume>();
 
+//    private File volumeFile = null;
+//    private File freeVolumeFile = null;
+    private FileChannel vfc = null;
+    private FileChannel fvfc = null;
+
+
     private int freeId;
 
 
@@ -36,9 +48,27 @@ public class Store {
             e.printStackTrace();
             System.exit(-1);
         }
+
+        try {
+            vfc = new FileOutputStream(storeConfig.storeVolumeIndex).getChannel();
+            fvfc = new FileOutputStream(storeConfig.storeFreeVolumeIndex).getChannel();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
+    private void saveFreeVolumeIndex() {
+        try {
+            for (Volume v : freeVolumes) {
+                fvfc.write(ByteBuffer.wrap(v.getSupperBlock().getSupperBlockFilePath().getBytes()));
 
+            }
+        } catch (IOException e) {
+
+        }
+
+    }
+    
     public void addFreeVolume(int n, String bDir, String iDir) {
         for (int i = 0; i < n; i++) {
             freeId ++;
@@ -48,6 +78,8 @@ public class Store {
 
 
             freeVolumes.add(v);
+
+            saveFreeVolumeIndex();
         }
     }
 

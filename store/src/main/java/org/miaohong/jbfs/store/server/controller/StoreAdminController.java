@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -28,7 +27,7 @@ public class StoreAdminController {
         System.out.println(n);
         System.out.println(bdir);
         System.out.println(idir);
-        //store.addFreeVolume();
+        store.addFreeVolume(n, bdir, idir);
         try {
             resp.getWriter().print("0000");
         } catch (IOException e) {

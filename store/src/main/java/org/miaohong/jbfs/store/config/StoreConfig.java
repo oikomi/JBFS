@@ -19,11 +19,11 @@ public class StoreConfig {
 
     public static StoreConfig _instance;
 
-    private static String storeVolumeIndex;
-    private static String storeFreeVolumeIndex;
-    private static String storeServerId;
-    private static String zookeeperAddrs;
-    private static int zookeeperTimeout;
+    public static String storeVolumeIndex;
+    public static String storeFreeVolumeIndex;
+    public static String storeServerId;
+    public static String zookeeperAddrs;
+    public static int zookeeperTimeout;
 
     public static int getZookeeperTimeout() {
         return zookeeperTimeout;

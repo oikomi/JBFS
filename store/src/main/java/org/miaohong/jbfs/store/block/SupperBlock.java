@@ -24,12 +24,21 @@ public class SupperBlock {
     private byte[] magic = {(byte)0xab, (byte)0xcd, (byte)0xef, (byte)0x00};
     private byte ver = (byte)0x01;
     private byte[] padding = new byte[Const.SUPER_BLOCK_PADDING_SIZE];
+
     private String supperBlockFilePath;
     private FileChannel fc = null;
 
     public SupperBlock(String supperBlockFilePath) {
         this.supperBlockFilePath = supperBlockFilePath;
         init();
+    }
+
+    public String getSupperBlockFilePath() {
+        return supperBlockFilePath;
+    }
+
+    public void setSupperBlockFilePath(String supperBlockFilePath) {
+        this.supperBlockFilePath = supperBlockFilePath;
     }
 
     private void init() {
