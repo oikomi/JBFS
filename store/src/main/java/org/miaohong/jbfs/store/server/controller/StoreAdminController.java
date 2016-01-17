@@ -3,13 +3,11 @@ package org.miaohong.jbfs.store.server.controller;
 import org.miaohong.jbfs.store.exception.StoreAdminException;
 import org.miaohong.jbfs.store.store.Store;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -21,7 +19,7 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/store/v1/admin/")
 public class StoreAdminController {
-    public static Store store = Store.getInstance();
+    public static Store store;
 
 //    static {
 //        store = Store.getInstance();
@@ -29,7 +27,7 @@ public class StoreAdminController {
 
     @PostConstruct
     public void init() {
-        //store = Store.getInstance();
+        store = Store.getInstance();
     }
 
     @RequestMapping(value = "/add_free_volume", method = RequestMethod.POST)
@@ -49,7 +47,7 @@ public class StoreAdminController {
 
     }
 
-    @RequestMapping(value = "/add_free_volume", method = RequestMethod.POST)
+    @RequestMapping(value = "/add_volume", method = RequestMethod.POST)
     public void addVolume(@RequestParam("vid") int vid, HttpServletRequest req, HttpServletResponse resp) {
         try {
             store.addVolume(vid);

@@ -33,8 +33,6 @@ public class Store {
     private Map<Integer, Volume> volumes = new HashMap<Integer, Volume>();
     private List<Volume> freeVolumes = new ArrayList<Volume>();
 
-//    private File volumeFile = null;
-//    private File freeVolumeFile = null;
     private FileOutputStream wvf = null;
     private FileOutputStream wfvf = null;
 
@@ -67,6 +65,9 @@ public class Store {
             rfvf = new FileInputStream(storeConfig.storeFreeVolumeIndex);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            System.exit(-1);
+        } finally {
+
         }
 
         parseFreeVolumeIndex();
@@ -104,7 +105,7 @@ public class Store {
 
         }
 
-        System.out.println(freeVolumes);
+//        System.out.println(freeVolumes);
 
     }
 
@@ -114,7 +115,6 @@ public class Store {
 
     private void saveFreeVolumeIndex() {
         try {
-            System.out.println(wfvf);
             wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
             for (Volume v : freeVolumes) {
                 wfvf.write((v.getSupperBlock().getSupperBlockFilePath() + ","
@@ -130,16 +130,11 @@ public class Store {
         for (int i = 0; i < n; i++) {
             freeId.incrementAndGet();
 
-            // System.out.println(freeId.get());
-
             Volume v = new Volume(Const.VOLUME_FREE_ID, bDir + Const.FREE_VOLUME_PREFIX + freeId.get(),
                 iDir + Const.FREE_VOLUME_PREFIX + freeId.get() + Const.VOLUME_INDEX_EXT);
 
-
             freeVolumes.add(v);
         }
-        // System.out.println(freeVolumes.size());
-
         saveFreeVolumeIndex();
     }
 
@@ -148,7 +143,7 @@ public class Store {
             throw  new StoreAdminException(ExceptionConst.ExceptionStoreNoFreeVolume);
         }
 
-        
+
 
     }
 
