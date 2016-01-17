@@ -24,6 +24,8 @@ import java.util.concurrent.atomic.AtomicLong;
  * Created by miaohong on 16/1/13.
  */
 public class Store {
+    private static Store instance = new Store();
+
     private StoreConfig storeConfig = StoreConfig.getInstance();
     private ZooKeeper zk = null;
 
@@ -32,52 +34,76 @@ public class Store {
 
 //    private File volumeFile = null;
 //    private File freeVolumeFile = null;
-    private FileChannel wvfc = null;
-    private FileChannel wfvfc = null;
+    private FileOutputStream wvf = null;
+    private FileOutputStream wfvf = null;
 
-    private FileChannel rvfc = null;
-    private FileChannel rfvfc = null;
+    private FileInputStream rvf = null;
+    private FileInputStream rfvf = null;
 
     private AtomicLong freeId = new AtomicLong(0);
 
-    public Store() {
+    private Store() {
         init();
     }
 
+    public static Store getInstance() {
+        return instance;
+    }
+
     private void init() {
+        System.out.println("init");
         try {
             zk = ZKConn.getZK(storeConfig.getZookeeperAddrs(), storeConfig.getZookeeperTimeout());
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
         }
-
         try {
-            wvfc = new FileOutputStream(storeConfig.storeVolumeIndex, false).getChannel();
-            wfvfc = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false).getChannel();
+            wvf = new FileOutputStream(storeConfig.storeVolumeIndex, false);
+            wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
 
-            rvfc = new FileInputStream(storeConfig.storeVolumeIndex).getChannel();
-            rfvfc = new FileInputStream(storeConfig.storeFreeVolumeIndex).getChannel();
+            rvf = new FileInputStream(storeConfig.storeVolumeIndex);
+            rfvf = new FileInputStream(storeConfig.storeFreeVolumeIndex);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
         parseFreeVolumeIndex();
         parseVolumeIndex();
+
+//        try {
+//            wvfc = new FileOutputStream(storeConfig.storeVolumeIndex, false).getChannel();
+//            wfvfc = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false).getChannel();
+//
+//            rvfc = new FileInputStream(storeConfig.storeVolumeIndex).getChannel();
+//            rfvfc = new FileInputStream(storeConfig.storeFreeVolumeIndex).getChannel();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void parseFreeVolumeIndex() {
-        //String buf = null;
-        System.out.println(storeConfig.storeFreeVolumeIndex);
         List<String> bufLines = new ArrayList<String>();
         try {
-            bufLines = IOUtils.readLines(new FileInputStream(storeConfig.storeFreeVolumeIndex));
-            //buf = IOUtils.toString(new FileInputStream(storeConfig.storeFreeVolumeIndex));
+            bufLines = IOUtils.readLines(rfvf);
+
+            for (String bufLine : bufLines) {
+                String [] tmpList = Utils.splitStr(bufLine, Const.SEPARATOR);
+                if (tmpList.length != 3) {
+                    continue;
+                }
+
+                Volume v = new Volume(Integer.parseInt(tmpList[2]), tmpList[0], tmpList[1]);
+
+                freeVolumes.add(v);
+            }
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+
         }
 
-        System.out.println(bufLines);
+        System.out.println(freeVolumes);
 
     }
 
@@ -87,12 +113,12 @@ public class Store {
 
     private void saveFreeVolumeIndex() {
         try {
-            wfvfc = wfvfc.position(Const.FILE_START_POS);
+            System.out.println(wfvf);
+            // wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
             for (Volume v : freeVolumes) {
-                wfvfc.write(ByteBuffer.wrap((v.getSupperBlock().getSupperBlockFilePath() + ","
-                        + v.getIndex().getIndexFile() + "," + Const.VOLUME_FREE_ID).getBytes()));
-
-                wfvfc.write(ByteBuffer.wrap("\n".getBytes()));
+                wfvf.write((v.getSupperBlock().getSupperBlockFilePath() + ","
+                        + v.getIndex().getIndexFile() + "," + Const.VOLUME_FREE_ID).getBytes());
+                wfvf.write("\n".getBytes());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -103,13 +129,22 @@ public class Store {
         for (int i = 0; i < n; i++) {
             freeId.incrementAndGet();
 
+            System.out.println(freeId.get());
+
             Volume v = new Volume(Const.VOLUME_FREE_ID, bDir + Const.FREE_VOLUME_PREFIX + freeId.get(),
                 iDir + Const.FREE_VOLUME_PREFIX + freeId.get() + Const.VOLUME_INDEX_EXT);
 
 
             freeVolumes.add(v);
-
-            saveFreeVolumeIndex();
         }
+        System.out.println(freeVolumes.size());
+
+        saveFreeVolumeIndex();
+    }
+
+
+    public static void main(String[] args) {
+        Store store = Store.getInstance();
+        store.addFreeVolume(2, "/tmp/store/", "/tmp/store/");
     }
 }

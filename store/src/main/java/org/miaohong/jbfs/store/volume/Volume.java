@@ -10,11 +10,13 @@ import java.util.Map;
  * Created by miaohong on 16/1/13.
  */
 public class Volume {
+    private int id;
     private SupperBlock supperBlock;
     private Index index;
     private Map<Integer, Integer> needles = new HashMap<Integer, Integer>();
 
     public Volume(int id, String bFile, String iFile) {
+        this.id = id;
         this.supperBlock = new SupperBlock(bFile);
         this.index = new Index(iFile);
 
@@ -37,7 +39,9 @@ public class Volume {
         this.index = index;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Volume: id = " + id + " supperBlock = " + supperBlock.getSupperBlockFilePath()
+            + " index = " + index.getIndexFile();
+    }
 }

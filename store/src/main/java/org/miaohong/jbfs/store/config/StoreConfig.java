@@ -17,13 +17,17 @@ public class StoreConfig {
 
     private static final String configFilePath = "config/store_config.properties";
 
-    public static StoreConfig _instance;
+    public static StoreConfig _instance = new StoreConfig();
 
     public static String storeVolumeIndex;
     public static String storeFreeVolumeIndex;
     public static String storeServerId;
     public static String zookeeperAddrs;
     public static int zookeeperTimeout;
+
+    private StoreConfig() {
+
+    }
 
     public static int getZookeeperTimeout() {
         return zookeeperTimeout;
