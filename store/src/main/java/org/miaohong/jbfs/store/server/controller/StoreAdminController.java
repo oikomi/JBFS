@@ -1,5 +1,6 @@
 package org.miaohong.jbfs.store.server.controller;
 
+import org.miaohong.jbfs.store.exception.StoreAdminException;
 import org.miaohong.jbfs.store.store.Store;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,21 @@ public class StoreAdminController {
 //        System.out.println(bdir);
 //        System.out.println(idir);
         store.addFreeVolume(n, bdir, idir);
+        try {
+            resp.getWriter().print("0000");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @RequestMapping(value = "/add_free_volume", method = RequestMethod.POST)
+    public void addVolume(@RequestParam("vid") int vid, HttpServletRequest req, HttpServletResponse resp) {
+        try {
+            store.addVolume(vid);
+        } catch (StoreAdminException e) {
+            e.printStackTrace();
+        }
         try {
             resp.getWriter().print("0000");
         } catch (IOException e) {

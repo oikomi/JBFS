@@ -4,6 +4,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.zookeeper.ZooKeeper;
 import org.miaohong.jbfs.store.block.SupperBlock;
 import org.miaohong.jbfs.store.config.StoreConfig;
+import org.miaohong.jbfs.store.exception.StoreAdminException;
 import org.miaohong.jbfs.store.volume.Volume;
 import org.miaohong.jbfs.zookeeper.conn.ZKConn;
 
@@ -129,7 +130,7 @@ public class Store {
         for (int i = 0; i < n; i++) {
             freeId.incrementAndGet();
 
-            System.out.println(freeId.get());
+            // System.out.println(freeId.get());
 
             Volume v = new Volume(Const.VOLUME_FREE_ID, bDir + Const.FREE_VOLUME_PREFIX + freeId.get(),
                 iDir + Const.FREE_VOLUME_PREFIX + freeId.get() + Const.VOLUME_INDEX_EXT);
@@ -137,9 +138,18 @@ public class Store {
 
             freeVolumes.add(v);
         }
-        System.out.println(freeVolumes.size());
+        // System.out.println(freeVolumes.size());
 
         saveFreeVolumeIndex();
+    }
+
+    public void addVolume(int vid) throws StoreAdminException {
+        if (freeVolumes.size() == 0) {
+            throw  new StoreAdminException(ExceptionConst.ExceptionStoreNoFreeVolume);
+        }
+
+        
+
     }
 
 
@@ -147,4 +157,6 @@ public class Store {
         Store store = Store.getInstance();
         store.addFreeVolume(2, "/tmp/store/", "/tmp/store/");
     }
+
+
 }
