@@ -114,7 +114,7 @@ public class Store {
     private void saveFreeVolumeIndex() {
         try {
             System.out.println(wfvf);
-            // wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
+            wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
             for (Volume v : freeVolumes) {
                 wfvf.write((v.getSupperBlock().getSupperBlockFilePath() + ","
                         + v.getIndex().getIndexFile() + "," + Const.VOLUME_FREE_ID).getBytes());

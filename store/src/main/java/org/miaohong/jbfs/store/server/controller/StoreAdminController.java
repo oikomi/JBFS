@@ -20,7 +20,6 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/store/v1/admin/")
 public class StoreAdminController {
-    @Resource
     public static Store store = Store.getInstance();
 
 //    static {
