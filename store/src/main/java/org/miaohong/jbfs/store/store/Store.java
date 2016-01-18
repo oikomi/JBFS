@@ -197,6 +197,10 @@ public class Store {
             throw new StoreAdminException(ExceptionConst.ExceptionNeedleTooLarge);
         }
 
+        if (size == 0) {
+            throw new StoreAdminException(ExceptionConst.ExceptionNeedleIsEmpty);
+        }
+
         Needle needle = new Needle(vid, key, cookie, size, buf);
 
 
