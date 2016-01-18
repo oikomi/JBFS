@@ -38,7 +38,7 @@ package org.miaohong.jbfs.store.needle;
 public class Needle {
     private byte[] headerMagic;
     private int cookie;
-    private int Key;
+    private int key;
     private byte flag;
     private int size;
     private byte[] data;
@@ -50,6 +50,18 @@ public class Needle {
     // used in peek
     private int dataSize; // data-part size
     private int incrOffset;
+
+    private int vid;
+
+    public Needle() {
+        
+    }
+
+    public Needle(int vid, int key, String cookie, long size, byte[] buf) {
+        this.vid = vid;
+        this.key = key;
+
+    }
 
 
     public void parseHeader() {

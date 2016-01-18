@@ -14,5 +14,7 @@ public class Const {
 
     public static final int FILE_START_POS = 0;
 
+    public static final long NEEDLE_MAX_SIZE = 30 * 1024 * 1024;
+
 
 }

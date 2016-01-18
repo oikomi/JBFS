@@ -1,5 +1,6 @@
 package org.miaohong.jbfs.store.server.controller;
 
+import org.miaohong.jbfs.store.exception.StoreAdminException;
 import org.miaohong.jbfs.store.store.Store;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,22 +23,22 @@ import java.io.IOException;
 public class StoreController {
     public static Store store;
 
-//    static {
-//        store = Store.getInstance();
-//    }
-
     @PostConstruct
     public void init() {
         store = Store.getInstance();
     }
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public void upload(@RequestParam("vid") int vid, @RequestParam("key") String key, @RequestParam("cookie") String cookie
+    public void upload(@RequestParam("vid") int vid, @RequestParam("key") int key, @RequestParam("cookie") String cookie
                        , @RequestParam("file") MultipartFile file) {
+
 
         try {
             store.upload(vid, key, cookie, file.getSize(), file.getBytes());
-        } catch (IOException e) {
+        } catch (StoreAdminException e) {
+            e.printStackTrace();
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
 

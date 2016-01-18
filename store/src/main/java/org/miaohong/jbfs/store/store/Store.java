@@ -5,6 +5,7 @@ import org.apache.zookeeper.ZooKeeper;
 import org.miaohong.jbfs.store.block.SupperBlock;
 import org.miaohong.jbfs.store.config.StoreConfig;
 import org.miaohong.jbfs.store.exception.StoreAdminException;
+import org.miaohong.jbfs.store.needle.Needle;
 import org.miaohong.jbfs.store.volume.Volume;
 import org.miaohong.jbfs.zookeeper.conn.ZKConn;
 
@@ -191,7 +192,14 @@ public class Store {
     }
 
 
-    public void upload(int vid, String key, String cookie, long size, byte[] buf) {
+    public void upload(int vid, int key, String cookie, long size, byte[] buf) throws StoreAdminException {
+        if (size > Const.NEEDLE_MAX_SIZE) {
+            throw new StoreAdminException(ExceptionConst.ExceptionNeedleTooLarge);
+        }
+
+        Needle needle = new Needle(vid, key, cookie, size, buf);
+
+
     }
 
 
@@ -199,7 +207,5 @@ public class Store {
         Store store = Store.getInstance();
         store.addFreeVolume(2, "/tmp/store/", "/tmp/store/");
     }
-
-
 
 }

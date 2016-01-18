@@ -7,4 +7,6 @@ public class ExceptionConst {
     public static final String ExceptionStoreNoFreeVolume = "StoreNoFreeVolume";
     public static final String ExceptionStoreVolumeExist = "StoreVolumeExist";
 
+    public static final String ExceptionNeedleTooLarge = "NeedleTooLarge";
+
 }
