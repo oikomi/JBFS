@@ -13,8 +13,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -87,7 +85,6 @@ public class Store {
         List<String> bufLines = new ArrayList<String>();
         try {
             bufLines = IOUtils.readLines(rfvf);
-
             for (String bufLine : bufLines) {
                 String [] tmpList = Utils.splitStr(bufLine, Const.SEPARATOR);
                 if (tmpList.length != 3) {
@@ -194,10 +191,15 @@ public class Store {
     }
 
 
+    public void upload(int vid, String key, String cookie, long size, byte[] buf) {
+    }
+
+
     public static void main(String[] args) {
         Store store = Store.getInstance();
         store.addFreeVolume(2, "/tmp/store/", "/tmp/store/");
     }
+
 
 
 }
