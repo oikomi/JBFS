@@ -106,7 +106,24 @@ public class Store {
     }
 
     private void parseVolumeIndex() {
+        List<String> bufLines = new ArrayList<String>();
+        try {
+            bufLines = IOUtils.readLines(rvf);
+            for (String bufLine : bufLines) {
+                String [] tmpList = Utils.splitStr(bufLine, Const.SEPARATOR);
+                if (tmpList.length != 3) {
+                    continue;
+                }
 
+                Volume v = new Volume(Integer.parseInt(tmpList[2]), tmpList[0], tmpList[1]);
+
+                volumes.put(Integer.parseInt(tmpList[2]), v);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+
+        }
     }
 
     private void saveFreeVolumeIndex() {
@@ -182,8 +199,6 @@ public class Store {
         saveVolumeIndex();
         saveFreeVolumeIndex();
     }
-
-
 
     private Volume getFreeVolume() {
         Volume v = freeVolumes.get(0);

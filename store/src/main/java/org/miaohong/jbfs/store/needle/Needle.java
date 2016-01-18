@@ -63,6 +63,10 @@ public class Needle {
 
     }
 
+    private void WriteHeader() {
+
+    }
+
 
     public void parseHeader() {
 
