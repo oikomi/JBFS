@@ -19,8 +19,14 @@ public class Volume {
         this.id = id;
         this.supperBlock = new SupperBlock(bFile);
         this.index = new Index(iFile);
+    }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
     }
 
     public SupperBlock getSupperBlock() {

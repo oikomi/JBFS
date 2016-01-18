@@ -52,12 +52,7 @@ public class SupperBlock {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (fc != null)
-                    fc.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
         }
     }
 

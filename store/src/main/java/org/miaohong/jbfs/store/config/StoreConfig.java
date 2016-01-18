@@ -1,5 +1,6 @@
 package org.miaohong.jbfs.store.config;
 
+import com.google.common.io.Closeables;
 import org.apache.commons.io.IOUtils;
 
 import java.io.FileInputStream;
@@ -93,7 +94,7 @@ public class StoreConfig {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            IOUtils.closeQuietly(configInputStream);
+            Closeables.closeQuietly(configInputStream);
         }
     }
 

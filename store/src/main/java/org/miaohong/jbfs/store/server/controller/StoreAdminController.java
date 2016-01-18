@@ -33,11 +33,6 @@ public class StoreAdminController {
     @RequestMapping(value = "/add_free_volume", method = RequestMethod.POST)
     public void addFreeVolume(@RequestParam("n") int n, @RequestParam("bdir") String bdir,
                               @RequestParam("idir") String idir, HttpServletRequest req, HttpServletResponse resp) {
-//        System.out.println("add_free_volume");
-//
-//        System.out.println(n);
-//        System.out.println(bdir);
-//        System.out.println(idir);
         store.addFreeVolume(n, bdir, idir);
         try {
             resp.getWriter().print("0000");

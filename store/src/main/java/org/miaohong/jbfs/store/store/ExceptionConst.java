@@ -5,6 +5,6 @@ package org.miaohong.jbfs.store.store;
  */
 public class ExceptionConst {
     public static final String ExceptionStoreNoFreeVolume = "StoreNoFreeVolume";
-
+    public static final String ExceptionStoreVolumeExist = "StoreVolumeExist";
 
 }

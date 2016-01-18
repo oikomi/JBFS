@@ -39,7 +39,7 @@ public class Store {
     private FileInputStream rvf = null;
     private FileInputStream rfvf = null;
 
-    private AtomicLong freeId = new AtomicLong(0);
+    private AtomicLong freeVolumeId = new AtomicLong(0);
 
     private Store() {
         init();
@@ -50,7 +50,6 @@ public class Store {
     }
 
     private void init() {
-        System.out.println("init");
         try {
             zk = ZKConn.getZK(storeConfig.getZookeeperAddrs(), storeConfig.getZookeeperTimeout());
         } catch (IOException e) {
@@ -98,15 +97,14 @@ public class Store {
                 Volume v = new Volume(Integer.parseInt(tmpList[2]), tmpList[0], tmpList[1]);
 
                 freeVolumes.add(v);
+
+                freeVolumeId.incrementAndGet();
             }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
 
         }
-
-//        System.out.println(freeVolumes);
-
     }
 
     private void parseVolumeIndex() {
@@ -126,12 +124,46 @@ public class Store {
         }
     }
 
+    private void saveVolumeIndex() {
+        try {
+            wvf = new FileOutputStream(storeConfig.storeVolumeIndex, false);
+            for (Map.Entry<Integer, Volume> entry : volumes.entrySet()) {
+                int i = 0;
+                while(true) {
+                    if (Utils.isFileExist(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).getAbsolutePath() +
+                            entry.getKey() + "_" + i)) {
+                        i ++;
+                        continue;
+                    } else {
+                        Utils.renameFile(entry.getValue().getSupperBlock().getSupperBlockFilePath(),
+                                Utils.getFileDir(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).getAbsolutePath()) +
+                                        entry.getKey() + "_" + i);
+
+                        Utils.renameFile(entry.getValue().getIndex().getIndexFile(),
+                                Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath()) +
+                                        entry.getKey() + "_" + i + ".idx");
+
+                        wvf.write(((Utils.getFileDir(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).getAbsolutePath()) +
+                                entry.getKey() + "_" + i + "," + Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath()) +
+                                entry.getKey() + "_" + i + ".idx" + "," + entry.getKey()).getBytes()));
+                        wvf.write("\n".getBytes());
+                        break;
+                    }
+                }
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void addFreeVolume(int n, String bDir, String iDir) {
         for (int i = 0; i < n; i++) {
-            freeId.incrementAndGet();
+            freeVolumeId.incrementAndGet();
 
-            Volume v = new Volume(Const.VOLUME_FREE_ID, bDir + Const.FREE_VOLUME_PREFIX + freeId.get(),
-                iDir + Const.FREE_VOLUME_PREFIX + freeId.get() + Const.VOLUME_INDEX_EXT);
+            Volume v = new Volume(Const.VOLUME_FREE_ID, bDir + Const.FREE_VOLUME_PREFIX + freeVolumeId.get(),
+                iDir + Const.FREE_VOLUME_PREFIX + freeVolumeId.get() + Const.VOLUME_INDEX_EXT);
 
             freeVolumes.add(v);
         }
@@ -140,11 +172,25 @@ public class Store {
 
     public void addVolume(int vid) throws StoreAdminException {
         if (freeVolumes.size() == 0) {
-            throw  new StoreAdminException(ExceptionConst.ExceptionStoreNoFreeVolume);
+            throw new StoreAdminException(ExceptionConst.ExceptionStoreNoFreeVolume);
         }
 
+        if (volumes.get(vid) != null) {
+            throw new StoreAdminException(ExceptionConst.ExceptionStoreVolumeExist);
+        }
+
+        Volume v = getFreeVolume();
+        volumes.put(vid, v);
+        saveVolumeIndex();
+        saveFreeVolumeIndex();
+    }
 
 
+
+    private Volume getFreeVolume() {
+        Volume v = freeVolumes.get(0);
+        freeVolumes.remove(0);
+        return v;
     }
 
 

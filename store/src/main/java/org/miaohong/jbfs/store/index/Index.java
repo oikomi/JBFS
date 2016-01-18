@@ -1,20 +1,37 @@
 package org.miaohong.jbfs.store.index;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.nio.channels.FileChannel;
+
 /**
  * Created by baidu on 16/1/14.
  */
 public class Index {
-    private String indexFile;
+    private String indexFilePath;
+    private FileChannel fc = null;
 
-    public Index(String iFile) {
-        this.indexFile = iFile;
+    public Index(String indexFilePath) {
+        this.indexFilePath = indexFilePath;
+        init();
     }
 
     public String getIndexFile() {
-        return indexFile;
+        return indexFilePath;
     }
 
-    public void setIndexFile(String indexFile) {
-        this.indexFile = indexFile;
+    public void setIndexFile(String indexFilePath) {
+        this.indexFilePath = indexFilePath;
+    }
+
+
+    private void init() {
+        try {
+            fc = new FileOutputStream(indexFilePath, true).getChannel();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
