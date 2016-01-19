@@ -1,5 +1,7 @@
 package org.miaohong.jbfs.store.block;
 
+import org.miaohong.jbfs.store.needle.Needle;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -65,5 +67,8 @@ public class SupperBlock {
         fc.write(ByteBuffer.wrap(new byte[]{ver}));
         fc.write(ByteBuffer.wrap(padding));
         fc.close();
+    }
+
+    public void addNeedle(Needle needle) {
     }
 }

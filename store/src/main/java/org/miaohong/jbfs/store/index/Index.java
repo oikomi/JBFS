@@ -5,7 +5,7 @@ import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;
 
 /**
- * Created by baidu on 16/1/14.
+ * Created by miaohong on 16/1/14.
  */
 public class Index {
     private String indexFilePath;

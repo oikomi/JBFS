@@ -47,8 +47,9 @@ public class Volume {
     }
 
 
-
     public void addNeedle(Needle needle) {
+        supperBlock.addNeedle(needle);
+
     }
 
 
