@@ -2,6 +2,7 @@ package org.miaohong.jbfs.store.volume;
 
 import org.miaohong.jbfs.store.block.SupperBlock;
 import org.miaohong.jbfs.store.index.Index;
+import org.miaohong.jbfs.store.needle.Needle;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,9 +46,16 @@ public class Volume {
         this.index = index;
     }
 
+
+
+    public void addNeedle(Needle needle) {
+    }
+
+
+
     @Override
     public String toString() {
         return "Volume: id = " + id + " supperBlock = " + supperBlock.getSupperBlockFilePath()
-            + " index = " + index.getIndexFile();
+                + " index = " + index.getIndexFile();
     }
 }

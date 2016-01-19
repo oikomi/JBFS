@@ -211,12 +211,18 @@ public class Store {
         if (size > Const.NEEDLE_MAX_SIZE) {
             throw new StoreAdminException(ExceptionConst.ExceptionNeedleTooLarge);
         }
-
         if (size == 0) {
             throw new StoreAdminException(ExceptionConst.ExceptionNeedleIsEmpty);
         }
 
+        Volume v = volumes.get(vid);
+        if (v == null) {
+            throw new StoreAdminException(ExceptionConst.ExceptionVolumeNotExist);
+        }
+
         Needle needle = new Needle(vid, key, cookie, size, buf);
+
+        v.addNeedle(needle);
 
 
     }

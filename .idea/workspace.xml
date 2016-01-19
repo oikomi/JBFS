@@ -58,14 +58,24 @@
       <file leaf-file-name="Store.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Store.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64028776">
-              <caret line="119" column="61" selection-start-line="119" selection-start-column="61" selection-end-line="119" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.38848922">
+              <caret line="217" column="36" selection-start-line="217" selection-start-column="36" selection-end-line="217" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#987#1004#0" expanded="true" />
                 <element signature="e#2747#2755#0" expanded="true" />
                 <element signature="e#3418#3426#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Volume.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/ExceptionConst.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="70" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
+              <caret line="13" column="72" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -163,15 +173,15 @@
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/exception/StoreAdminException.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/config/StoreConfig.java" />
-        <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/SupperBlock.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/index/Index.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Utils.java" />
         <option value="$PROJECT_DIR$/store/src/main/resources/config/store_config.properties" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Const.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreController.java" />
-        <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/ExceptionConst.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/needle/Needle.java" />
+        <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/ExceptionConst.java" />
+        <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Store.java" />
       </list>
     </option>
@@ -1374,12 +1384,12 @@
       <workItem from="1452755038999" duration="13166000" />
       <workItem from="1452836407371" duration="367000" />
       <workItem from="1452836802722" duration="16751000" />
-      <workItem from="1453099609395" duration="14007000" />
+      <workItem from="1453099609395" duration="17301000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68082000" />
+    <option name="totallyTimeSpent" value="71376000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1239" height="777" extended-state="0" />
@@ -1440,7 +1450,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1480,7 +1490,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1511,14 +1521,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#387#405#0" expanded="true" />
-            <element signature="e#608#609#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#666#667#0" expanded="true" />
-            <element signature="e#694#695#0" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#433#451#0" expanded="false" />
+            <element signature="e#654#655#0" expanded="false" />
+            <element signature="e#679#680#0" expanded="false" />
+            <element signature="e#712#713#0" expanded="false" />
+            <element signature="e#740#741#0" expanded="false" />
+            <element signature="e#783#784#0" expanded="false" />
+            <element signature="e#817#818#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1565,6 +1575,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="37" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#576#742#0" expanded="false" />
+            <element signature="e#741#742#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1573,7 +1588,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="103" selection-start-line="25" selection-start-column="103" selection-end-line="25" selection-end-column="103" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1646,6 +1661,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="37" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#576#742#0" expanded="false" />
+            <element signature="e#741#742#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1726,24 +1746,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="96" column="53" selection-start-line="96" selection-start-column="36" selection-end-line="96" selection-end-column="53" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#387#405#0" expanded="true" />
-            <element signature="e#608#609#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#666#667#0" expanded="true" />
-            <element signature="e#694#695#0" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1829,16 +1832,8 @@
         <state vertical-scroll-proportion="0.31654677">
           <caret line="47" column="17" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/ExceptionConst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="70" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1860,10 +1855,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/ExceptionConst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="72" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Store.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64028776">
-          <caret line="119" column="61" selection-start-line="119" selection-start-column="61" selection-end-line="119" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.38848922">
+          <caret line="217" column="36" selection-start-line="217" selection-start-column="36" selection-end-line="217" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#987#1004#0" expanded="true" />

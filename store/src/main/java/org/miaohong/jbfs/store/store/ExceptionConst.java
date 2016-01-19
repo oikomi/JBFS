@@ -10,4 +10,6 @@ public class ExceptionConst {
     public static final String ExceptionNeedleTooLarge = "NeedleTooLarge";
 
     public static final String ExceptionNeedleIsEmpty = "NeedleIsEmpty";
+
+    public static final String ExceptionVolumeNotExist = "VolumeNotExist";
 }
