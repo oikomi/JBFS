@@ -66,9 +66,14 @@ public class SupperBlock {
         fc.write(ByteBuffer.wrap(magic));
         fc.write(ByteBuffer.wrap(new byte[]{ver}));
         fc.write(ByteBuffer.wrap(padding));
-        fc.close();
+        //fc.close();
     }
 
-    public void addNeedle(Needle needle) {
+    private void writeNeedle(Needle needle) throws IOException {
+        fc.write(ByteBuffer.wrap(needle.getData()));
+    }
+
+    public void addNeedle(Needle needle) throws IOException {
+        writeNeedle(needle);
     }
 }

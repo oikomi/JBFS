@@ -61,7 +61,123 @@ public class Needle {
         this.vid = vid;
         this.key = key;
 
+        this.data = buf;
+
     }
+
+
+    public byte[] getHeaderMagic() {
+        return headerMagic;
+    }
+
+    public void setHeaderMagic(byte[] headerMagic) {
+        this.headerMagic = headerMagic;
+    }
+
+    public int getCookie() {
+        return cookie;
+    }
+
+    public void setCookie(int cookie) {
+        this.cookie = cookie;
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
+    }
+
+    public byte getFlag() {
+        return flag;
+    }
+
+    public void setFlag(byte flag) {
+        this.flag = flag;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
+    public byte[] getFooterMagic() {
+        return footerMagic;
+    }
+
+    public void setFooterMagic(byte[] footerMagic) {
+        this.footerMagic = footerMagic;
+    }
+
+    public int getChecksum() {
+        return checksum;
+    }
+
+    public void setChecksum(int checksum) {
+        this.checksum = checksum;
+    }
+
+    public byte[] getPadding() {
+        return padding;
+    }
+
+    public void setPadding(byte[] padding) {
+        this.padding = padding;
+    }
+
+    public int getPaddingSize() {
+        return paddingSize;
+    }
+
+    public void setPaddingSize(int paddingSize) {
+        this.paddingSize = paddingSize;
+    }
+
+    public int getTotalSize() {
+        return totalSize;
+    }
+
+    public void setTotalSize(int totalSize) {
+        this.totalSize = totalSize;
+    }
+
+    public int getDataSize() {
+        return dataSize;
+    }
+
+    public void setDataSize(int dataSize) {
+        this.dataSize = dataSize;
+    }
+
+    public int getIncrOffset() {
+        return incrOffset;
+    }
+
+    public void setIncrOffset(int incrOffset) {
+        this.incrOffset = incrOffset;
+    }
+
+    public int getVid() {
+        return vid;
+    }
+
+    public void setVid(int vid) {
+        this.vid = vid;
+    }
+
 
     private void WriteHeader() {
 

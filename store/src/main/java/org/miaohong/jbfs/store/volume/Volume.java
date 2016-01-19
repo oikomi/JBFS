@@ -4,6 +4,7 @@ import org.miaohong.jbfs.store.block.SupperBlock;
 import org.miaohong.jbfs.store.index.Index;
 import org.miaohong.jbfs.store.needle.Needle;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,13 +48,12 @@ public class Volume {
     }
 
 
-    public void addNeedle(Needle needle) {
+    public void addNeedle(Needle needle) throws IOException {
         supperBlock.addNeedle(needle);
 
     }
 
-
-
+    
     @Override
     public String toString() {
         return "Volume: id = " + id + " supperBlock = " + supperBlock.getSupperBlockFilePath()
