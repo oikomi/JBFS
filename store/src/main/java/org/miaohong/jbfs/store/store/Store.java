@@ -127,6 +127,7 @@ public class Store {
     }
 
     private void saveFreeVolumeIndex() {
+        System.out.println("saveFreeVolumeIndex");
         try {
             wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
             for (Volume v : freeVolumes) {
@@ -145,22 +146,23 @@ public class Store {
             for (Map.Entry<Integer, Volume> entry : volumes.entrySet()) {
                 int i = 0;
                 while(true) {
-                    if (Utils.isFileExist(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).getAbsolutePath() +
-                            entry.getKey() + "_" + i)) {
+                    if (Utils.isFileExist(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).
+                            getAbsolutePath() + entry.getKey() + "_" + i)) {
                         i ++;
                         continue;
                     } else {
                         Utils.renameFile(entry.getValue().getSupperBlock().getSupperBlockFilePath(),
-                                Utils.getFileDir(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).getAbsolutePath()) +
-                                        entry.getKey() + "_" + i);
+                                Utils.getFileDir(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).
+                                        getAbsolutePath()) + entry.getKey() + "_" + i);
 
                         Utils.renameFile(entry.getValue().getIndex().getIndexFile(),
-                                Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath()) +
-                                        entry.getKey() + "_" + i + ".idx");
+                                Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath())
+                                        + entry.getKey() + "_" + i + Const.VOLUME_INDEX_EXT);
 
-                        wvf.write(((Utils.getFileDir(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).getAbsolutePath()) +
-                                entry.getKey() + "_" + i + "," + Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath()) +
-                                entry.getKey() + "_" + i + ".idx" + "," + entry.getKey()).getBytes()));
+                        wvf.write(((Utils.getFileDir(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).
+                                getAbsolutePath()) + entry.getKey() + "_" + i + "," +
+                                Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath()) +
+                                entry.getKey() + "_" + i + Const.VOLUME_INDEX_EXT + "," + entry.getKey()).getBytes()));
                         wvf.write("\n".getBytes());
                         break;
                     }
@@ -205,7 +207,6 @@ public class Store {
         freeVolumes.remove(0);
         return v;
     }
-
 
     public void upload(int vid, int key, String cookie, long size, byte[] buf) throws StoreAdminException {
         if (size > Const.NEEDLE_MAX_SIZE) {

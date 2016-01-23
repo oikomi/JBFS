@@ -37,6 +37,7 @@ public class Utils {
 
             dirStr += "/";
         }
+        System.out.println(dirStr);
 
         return dirStr;
     }

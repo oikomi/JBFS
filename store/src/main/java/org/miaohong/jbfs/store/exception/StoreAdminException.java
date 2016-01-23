@@ -10,5 +10,8 @@ public class StoreAdminException extends Exception {
     }
 
 
-
+    @Override
+    public String toString() {
+        return this.msg;
+    }
 }

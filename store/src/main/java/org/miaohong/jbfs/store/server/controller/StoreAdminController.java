@@ -47,6 +47,11 @@ public class StoreAdminController {
         try {
             store.addVolume(vid);
         } catch (StoreAdminException e) {
+            try {
+                resp.getWriter().print(e.toString());
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         }
         try {
