@@ -66,7 +66,6 @@ public class SupperBlock {
         fc.write(ByteBuffer.wrap(magic));
         fc.write(ByteBuffer.wrap(new byte[]{ver}));
         fc.write(ByteBuffer.wrap(padding));
-        //fc.close();
     }
 
     private void writeNeedle(Needle needle) throws IOException {

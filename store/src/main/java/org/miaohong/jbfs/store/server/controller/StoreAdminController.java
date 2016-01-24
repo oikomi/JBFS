@@ -44,11 +44,6 @@ public class StoreAdminController {
         storeAdminResp.setMsg("ok");
 
         Utils.printJson(resp, JSON.toJSONString(storeAdminResp));
-//        try {
-//            resp.getWriter().print("0000");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
     }
 
