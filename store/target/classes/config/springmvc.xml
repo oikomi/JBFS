@@ -16,5 +16,9 @@
     <!-- if you use annotation you must configure following setting -->
     <mvc:annotation-driven />
 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="50000000"/>
+    </bean>
+
 
 </beans>
