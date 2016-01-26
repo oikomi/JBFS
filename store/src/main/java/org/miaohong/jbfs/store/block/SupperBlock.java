@@ -114,6 +114,9 @@ public class SupperBlock {
         totalWriteSize += NeedleConst._headerSize;
 
         wf.write(needle.getData());
+
+        needleOffsetMap.put(needle.getKey(), totalWriteSize);
+
         totalWriteSize += needle.getSize();
 
         wf.write(needle.buildNeedleFooterMeta().array());
@@ -147,7 +150,7 @@ public class SupperBlock {
     }
 
     public synchronized void addNeedle(Needle needle) throws IOException {
-        needleOffsetMap.put(needle.getKey(), totalWriteSize);
+
         writeNeedle(needle);
     }
 

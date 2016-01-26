@@ -12,6 +12,7 @@ import sun.jvm.hotspot.interpreter.BytecodeSipush;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -51,7 +52,7 @@ public class StoreController {
         String key = req.getParameter("key");
         String cookie = req.getParameter("cookie");
 
-        System.out.println("upload");
+        //System.out.println("upload");
         try {
             store.upload(Integer.parseInt(vid), Integer.parseInt(key), cookie, file.getSize(), file.getBytes());
         } catch (StoreAdminException e) {
@@ -69,6 +70,8 @@ public class StoreController {
                     @RequestParam("cookie") String cookie, HttpServletRequest req, HttpServletResponse resp) {
         try {
             byte[] buf = store.get(vid, key, cookie);
+//            BufferedOutputStream bos = new BufferedOutputStream(resp.getOutputStream());
+//            bos.write(buf);
 
             new FileOutputStream("/tmp/a").write(buf);
         } catch (StoreAdminException e) {
