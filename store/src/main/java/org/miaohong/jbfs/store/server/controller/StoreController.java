@@ -64,7 +64,6 @@ public class StoreController {
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public void get(@RequestParam("vid") int vid, @RequestParam("key") String key,
                     @RequestParam("cookie") String cookie, HttpServletRequest req, HttpServletResponse resp) {
-
         try {
             store.get(vid, key, cookie);
         } catch (StoreAdminException e) {
