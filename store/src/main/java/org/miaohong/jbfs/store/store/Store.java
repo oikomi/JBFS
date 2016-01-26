@@ -77,18 +77,8 @@ public class Store {
         logger.debug("freeVolumes : " + freeVolumes);
         logger.debug("volumes : " + volumes);
 
-        System.out.println("freeVolumes : " + freeVolumes);
-        System.out.println("volumes : " + volumes);
-
-//        try {
-//            wvfc = new FileOutputStream(storeConfig.storeVolumeIndex, false).getChannel();
-//            wfvfc = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false).getChannel();
-//
-//            rvfc = new FileInputStream(storeConfig.storeVolumeIndex).getChannel();
-//            rfvfc = new FileInputStream(storeConfig.storeFreeVolumeIndex).getChannel();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
+//        System.out.println("freeVolumes : " + freeVolumes);
+//        System.out.println("volumes : " + volumes);
     }
 
     private void parseFreeVolumeIndex() {
@@ -239,8 +229,6 @@ public class Store {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
 

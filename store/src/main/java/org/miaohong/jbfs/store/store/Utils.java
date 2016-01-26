@@ -29,7 +29,7 @@ public class Utils {
     }
 
     public static String getFileDir(String filePath) {
-        String dirStr = "/";
+        String dirStr = "";
         String[] pathList = filePath.split("/");
 
         for(int i = 0; i < pathList.length - 1; i++) {

@@ -86,12 +86,11 @@ public class SupperBlock {
 
         wf.write(needle.getData());
         totalSize += needle.getSize();
-        
+
         wf.flush();
     }
 
     public void addNeedle(Needle needle) throws IOException {
-
         writeNeedle(needle);
     }
 }
