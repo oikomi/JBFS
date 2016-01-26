@@ -1,8 +1,8 @@
 package org.miaohong.jbfs.store.store;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
 import org.apache.zookeeper.ZooKeeper;
-import org.miaohong.jbfs.store.block.SupperBlock;
 import org.miaohong.jbfs.store.config.StoreConfig;
 import org.miaohong.jbfs.store.exception.StoreAdminException;
 import org.miaohong.jbfs.store.needle.Needle;
@@ -24,6 +24,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * Created by miaohong on 16/1/13.
  */
 public class Store {
+    private Logger logger  =  Logger.getLogger(Store.class);
     private static Store instance = new Store();
 
     private StoreConfig storeConfig = StoreConfig.getInstance();
@@ -56,10 +57,11 @@ public class Store {
             System.exit(-1);
         }
         try {
-            wvf = new FileOutputStream(storeConfig.storeVolumeIndex, false);
-            wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
+            wvf = new FileOutputStream(storeConfig.storeVolumeIndex, true);
+            wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, true);
 
             rvf = new FileInputStream(storeConfig.storeVolumeIndex);
+            System.out.println(storeConfig.storeFreeVolumeIndex);
             rfvf = new FileInputStream(storeConfig.storeFreeVolumeIndex);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -70,6 +72,13 @@ public class Store {
 
         parseFreeVolumeIndex();
         parseVolumeIndex();
+
+        //System.out.println();
+        logger.debug("freeVolumes : " + freeVolumes);
+        logger.debug("volumes : " + volumes);
+
+        System.out.println("freeVolumes : " + freeVolumes);
+        System.out.println("volumes : " + volumes);
 
 //        try {
 //            wvfc = new FileOutputStream(storeConfig.storeVolumeIndex, false).getChannel();
@@ -86,8 +95,9 @@ public class Store {
         List<String> bufLines = new ArrayList<String>();
         try {
             bufLines = IOUtils.readLines(rfvf);
+            System.out.println(bufLines);
             for (String bufLine : bufLines) {
-                String [] tmpList = Utils.splitStr(bufLine, Const.SEPARATOR);
+                String [] tmpList = Utils.splitStr(bufLine, StoreConst.SEPARATOR);
                 if (tmpList.length != 3) {
                     continue;
                 }
@@ -98,6 +108,8 @@ public class Store {
 
                 freeVolumeId.incrementAndGet();
             }
+
+            System.out.println(freeVolumes);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -110,7 +122,7 @@ public class Store {
         try {
             bufLines = IOUtils.readLines(rvf);
             for (String bufLine : bufLines) {
-                String [] tmpList = Utils.splitStr(bufLine, Const.SEPARATOR);
+                String [] tmpList = Utils.splitStr(bufLine, StoreConst.SEPARATOR);
                 if (tmpList.length != 3) {
                     continue;
                 }
@@ -132,7 +144,7 @@ public class Store {
             wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
             for (Volume v : freeVolumes) {
                 wfvf.write((v.getSupperBlock().getSupperBlockFilePath() + ","
-                        + v.getIndex().getIndexFile() + "," + Const.VOLUME_FREE_ID).getBytes());
+                        + v.getIndex().getIndexFile() + "," + StoreConst.VOLUME_FREE_ID).getBytes());
                 wfvf.write("\n".getBytes());
             }
         } catch (IOException e) {
@@ -157,12 +169,12 @@ public class Store {
 
                         Utils.renameFile(entry.getValue().getIndex().getIndexFile(),
                                 Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath())
-                                        + entry.getKey() + "_" + i + Const.VOLUME_INDEX_EXT);
+                                        + entry.getKey() + "_" + i + StoreConst.VOLUME_INDEX_EXT);
 
                         wvf.write(((Utils.getFileDir(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).
                                 getAbsolutePath()) + entry.getKey() + "_" + i + "," +
                                 Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath()) +
-                                entry.getKey() + "_" + i + Const.VOLUME_INDEX_EXT + "," + entry.getKey()).getBytes()));
+                                entry.getKey() + "_" + i + StoreConst.VOLUME_INDEX_EXT + "," + entry.getKey()).getBytes()));
                         wvf.write("\n".getBytes());
                         break;
                     }
@@ -179,8 +191,8 @@ public class Store {
         for (int i = 0; i < n; i++) {
             freeVolumeId.incrementAndGet();
 
-            Volume v = new Volume(Const.VOLUME_FREE_ID, bDir + Const.FREE_VOLUME_PREFIX + freeVolumeId.get(),
-                iDir + Const.FREE_VOLUME_PREFIX + freeVolumeId.get() + Const.VOLUME_INDEX_EXT);
+            Volume v = new Volume(StoreConst.VOLUME_FREE_ID, bDir + StoreConst.FREE_VOLUME_PREFIX + freeVolumeId.get(),
+                iDir + StoreConst.FREE_VOLUME_PREFIX + freeVolumeId.get() + StoreConst.VOLUME_INDEX_EXT);
 
             freeVolumes.add(v);
         }
@@ -209,7 +221,7 @@ public class Store {
     }
 
     public void upload(int vid, int key, String cookie, long size, byte[] buf) throws StoreAdminException {
-        if (size > Const.NEEDLE_MAX_SIZE) {
+        if (size > StoreConst.NEEDLE_MAX_SIZE) {
             throw new StoreAdminException(ExceptionConst.ExceptionNeedleTooLarge);
         }
         if (size == 0) {

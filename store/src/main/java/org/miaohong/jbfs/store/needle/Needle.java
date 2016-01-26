@@ -1,5 +1,7 @@
 package org.miaohong.jbfs.store.needle;
 
+import java.nio.ByteBuffer;
+
 /**
  * Created by miaohong on 16/1/13.
  */
@@ -36,13 +38,13 @@ package org.miaohong.jbfs.store.needle;
 // padding   | total needle size is aligned to 8 bytes
 
 public class Needle {
-    private byte[] headerMagic;
+    private byte[] headerMagic = {(byte)0x12, (byte)0x34, (byte)0x56, (byte)0x78};
     private int cookie;
-    private int key;
+    private long key;
     private byte flag;
     private int size;
     private byte[] data;
-    private byte[] footerMagic;
+    private byte[] footerMagic = {(byte)0x87, (byte)0x65, (byte)0x43, (byte)0x21};
     private int checksum;
     private byte[] padding;
     private int paddingSize;
@@ -60,11 +62,10 @@ public class Needle {
     public Needle(int vid, int key, String cookie, long size, byte[] buf) {
         this.vid = vid;
         this.key = key;
-
+        this.cookie = Integer.parseInt(cookie);
         this.data = buf;
-
+        this.size = (int) size;
     }
-
 
     public byte[] getHeaderMagic() {
         return headerMagic;
@@ -82,7 +83,7 @@ public class Needle {
         this.cookie = cookie;
     }
 
-    public int getKey() {
+    public long getKey() {
         return key;
     }
 
@@ -186,6 +187,24 @@ public class Needle {
 
     public void parseHeader() {
 
+    }
+
+    public ByteBuffer buildNeedleHeaderMeta() {
+        ByteBuffer bb = ByteBuffer.allocate(NeedleConst._headerSize);
+        bb.put(headerMagic);
+        bb.putInt(cookie);
+        bb.putLong(key);
+        bb.put(NeedleConst.FLAG_OK);
+        bb.putInt(size);
+
+        return bb;
+    }
+
+    public ByteBuffer buildNeedleFooterMeta() {
+        ByteBuffer bb = ByteBuffer.allocate(NeedleConst._footerSize);
+
+
+        return bb;
     }
 
 }

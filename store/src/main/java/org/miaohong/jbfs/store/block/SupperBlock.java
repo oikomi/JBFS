@@ -1,14 +1,13 @@
 package org.miaohong.jbfs.store.block;
 
 import org.miaohong.jbfs.store.needle.Needle;
+import org.miaohong.jbfs.store.needle.NeedleConst;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.channels.FileChannel;
 
 /**
  * Created by miaohong on 16/1/13.
@@ -25,10 +24,13 @@ import java.nio.channels.FileChannel;
 public class SupperBlock {
     private byte[] magic = {(byte)0xab, (byte)0xcd, (byte)0xef, (byte)0x00};
     private byte ver = (byte)0x01;
-    private byte[] padding = new byte[Const.SUPER_BLOCK_PADDING_SIZE];
+    private byte[] padding = new byte[SuperBlockConst.SUPER_BLOCK_PADDING_SIZE];
 
     private String supperBlockFilePath;
-    private FileChannel fc = null;
+
+    private long totalSize = 0;
+
+    private FileOutputStream wf = null;
 
     public SupperBlock(String supperBlockFilePath) {
         this.supperBlockFilePath = supperBlockFilePath;
@@ -45,7 +47,7 @@ public class SupperBlock {
 
     private void init() {
         try {
-            fc = new FileOutputStream(supperBlockFilePath, true).getChannel();
+            wf = new FileOutputStream(supperBlockFilePath, true);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -63,16 +65,33 @@ public class SupperBlock {
     }
 
     private void writeSupperBlockHeader() throws IOException {
-        fc.write(ByteBuffer.wrap(magic));
-        fc.write(ByteBuffer.wrap(new byte[]{ver}));
-        fc.write(ByteBuffer.wrap(padding));
+        ByteBuffer bb = ByteBuffer.allocate(SuperBlockConst.SUPER_BLOCK_HEADER_SIZE);
+        bb.order(ByteOrder.BIG_ENDIAN);
+
+        bb.put(magic);
+        bb.put(ver);
+        bb.put(padding);
+
+        totalSize += SuperBlockConst.SUPER_BLOCK_HEADER_SIZE;
+
+        wf.write(bb.array());
+        wf.flush();
     }
 
+
     private void writeNeedle(Needle needle) throws IOException {
-        fc.write(ByteBuffer.wrap(needle.getData()));
+        wf.write(needle.buildNeedleHeaderMeta().array());
+
+        totalSize += NeedleConst._headerSize;
+
+        wf.write(needle.getData());
+        totalSize += needle.getSize();
+        
+        wf.flush();
     }
 
     public void addNeedle(Needle needle) throws IOException {
+
         writeNeedle(needle);
     }
 }

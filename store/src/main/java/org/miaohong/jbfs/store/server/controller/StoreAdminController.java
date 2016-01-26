@@ -24,14 +24,14 @@ import java.io.IOException;
 public class StoreAdminController {
     public static Store store;
 
-//    static {
-//        store = Store.getInstance();
-//    }
-
-    @PostConstruct
-    public void init() {
+    static {
         store = Store.getInstance();
     }
+
+//    @PostConstruct
+//    public void init() {
+//        store = Store.getInstance();
+//    }
 
     @RequestMapping(value = "/add_free_volume", method = RequestMethod.POST)
     public void addFreeVolume(@RequestParam("n") int n, @RequestParam("bdir") String bdir,
