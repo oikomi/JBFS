@@ -3,11 +3,14 @@ package org.miaohong.jbfs.store.block;
 import org.miaohong.jbfs.store.needle.Needle;
 import org.miaohong.jbfs.store.needle.NeedleConst;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by miaohong on 16/1/13.
@@ -26,15 +29,36 @@ public class SupperBlock {
     private byte ver = (byte)0x01;
     private byte[] padding = new byte[SuperBlockConst.SUPER_BLOCK_PADDING_SIZE];
 
+    private Map<Long, Long> needleOffsetMap = new HashMap<Long, Long>();
+
+    private Map<Long, Integer> needleSizeMap = new HashMap<Long, Integer>();
+
     private String supperBlockFilePath;
 
     private long totalWriteSize = 0;
 
+    private FileInputStream rf = null;
     private FileOutputStream wf = null;
 
     public SupperBlock(String supperBlockFilePath) {
         this.supperBlockFilePath = supperBlockFilePath;
         init();
+    }
+
+    public Map<Long, Integer> getNeedleSizeMap() {
+        return needleSizeMap;
+    }
+
+    public void setNeedleSizeMap(Map<Long, Integer> needleSizeMap) {
+        this.needleSizeMap = needleSizeMap;
+    }
+
+    public Map<Long, Long> getNeedleOffsetMap() {
+        return needleOffsetMap;
+    }
+
+    public void setNeedleOffsetMap(Map<Long, Long> needleOffsetMap) {
+        this.needleOffsetMap = needleOffsetMap;
     }
 
     public String getSupperBlockFilePath() {
@@ -48,6 +72,7 @@ public class SupperBlock {
     private void init() {
         try {
             wf = new FileOutputStream(supperBlockFilePath, true);
+            rf = new FileInputStream(supperBlockFilePath);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -98,10 +123,33 @@ public class SupperBlock {
 
         totalWriteSize += getAlignedOffset();
 
+        needleSizeMap.put(needle.getKey(), needle.getSize());
+
         wf.flush();
     }
 
-    public void addNeedle(Needle needle) throws IOException {
+    public byte[] getNeedle(long key, int cookie) {
+        if (needleOffsetMap.get(key) != null) {
+            byte[] buf = new byte[needleSizeMap.get(key)];
+
+            try {
+                rf.skip(needleOffsetMap.get(key));
+
+                rf.read(buf);
+
+                return buf;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+
+    public synchronized void addNeedle(Needle needle) throws IOException {
+        needleOffsetMap.put(needle.getKey(), totalWriteSize);
         writeNeedle(needle);
     }
+
+
 }

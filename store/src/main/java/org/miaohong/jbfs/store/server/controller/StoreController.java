@@ -7,10 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import sun.jvm.hotspot.interpreter.BytecodeSipush;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -65,8 +68,14 @@ public class StoreController {
     public void get(@RequestParam("vid") int vid, @RequestParam("key") String key,
                     @RequestParam("cookie") String cookie, HttpServletRequest req, HttpServletResponse resp) {
         try {
-            store.get(vid, key, cookie);
+            byte[] buf = store.get(vid, key, cookie);
+
+            new FileOutputStream("/tmp/a").write(buf);
         } catch (StoreAdminException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

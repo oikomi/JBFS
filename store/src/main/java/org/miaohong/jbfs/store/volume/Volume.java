@@ -15,7 +15,6 @@ public class Volume {
     private int id;
     private SupperBlock supperBlock;
     private Index index;
-    private Map<Integer, Integer> needles = new HashMap<Integer, Integer>();
 
     public Volume(int id, String bFile, String iFile) {
         this.id = id;
@@ -53,8 +52,10 @@ public class Volume {
 
     }
 
-    public void getNeedle() {
-        
+    public byte[] getNeedle(long key, int cookie) {
+
+        return supperBlock.getNeedle(key, cookie);
+
     }
 
     @Override

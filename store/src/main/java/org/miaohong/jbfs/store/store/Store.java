@@ -231,14 +231,13 @@ public class Store {
         }
     }
 
-    public void get(int vid, String key, String cookie) throws StoreAdminException {
+    public byte[] get(int vid, String key, String cookie) throws StoreAdminException {
         Volume v = volumes.get(vid);
         if (v == null) {
             throw new StoreAdminException(ExceptionConst.ExceptionVolumeNotExist);
         }
 
-        v.getNeedle();
-
+        return v.getNeedle(Long.parseLong(key), Integer.parseInt(cookie));
     }
 
 
