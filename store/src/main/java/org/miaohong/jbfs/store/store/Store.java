@@ -231,10 +231,21 @@ public class Store {
         }
     }
 
+    public void get(int vid, String key, String cookie) throws StoreAdminException {
+        Volume v = volumes.get(vid);
+        if (v == null) {
+            throw new StoreAdminException(ExceptionConst.ExceptionVolumeNotExist);
+        }
+
+
+
+    }
+
 
     public static void main(String[] args) {
         Store store = Store.getInstance();
         store.addFreeVolume(2, "/tmp/store/", "/tmp/store/");
     }
+
 
 }

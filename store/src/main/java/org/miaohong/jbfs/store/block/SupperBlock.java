@@ -28,7 +28,7 @@ public class SupperBlock {
 
     private String supperBlockFilePath;
 
-    private long totalSize = 0;
+    private long totalWriteSize = 0;
 
     private FileOutputStream wf = null;
 
@@ -64,6 +64,10 @@ public class SupperBlock {
 
     }
 
+    private int getAlignedOffset() {
+        return (int) (8 - totalWriteSize % 8);
+    }
+
     private void writeSupperBlockHeader() throws IOException {
         ByteBuffer bb = ByteBuffer.allocate(SuperBlockConst.SUPER_BLOCK_HEADER_SIZE);
         bb.order(ByteOrder.BIG_ENDIAN);
@@ -72,7 +76,7 @@ public class SupperBlock {
         bb.put(ver);
         bb.put(padding);
 
-        totalSize += SuperBlockConst.SUPER_BLOCK_HEADER_SIZE;
+        totalWriteSize += SuperBlockConst.SUPER_BLOCK_HEADER_SIZE;
 
         wf.write(bb.array());
         wf.flush();
@@ -82,10 +86,17 @@ public class SupperBlock {
     private void writeNeedle(Needle needle) throws IOException {
         wf.write(needle.buildNeedleHeaderMeta().array());
 
-        totalSize += NeedleConst._headerSize;
+        totalWriteSize += NeedleConst._headerSize;
 
         wf.write(needle.getData());
-        totalSize += needle.getSize();
+        totalWriteSize += needle.getSize();
+
+        wf.write(needle.buildNeedleFooterMeta().array());
+        totalWriteSize += NeedleConst._footerSize;
+
+        wf.write(new byte[getAlignedOffset()]);
+
+        totalWriteSize += getAlignedOffset();
 
         wf.flush();
     }

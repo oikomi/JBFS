@@ -1,6 +1,7 @@
 package org.miaohong.jbfs.store.needle;
 
 import java.nio.ByteBuffer;
+import java.util.zip.CRC32;
 
 /**
  * Created by miaohong on 16/1/13.
@@ -189,6 +190,13 @@ public class Needle {
 
     }
 
+    private int calcCheckSum() {
+        CRC32 crc32 = new CRC32();
+        crc32.update(data);
+
+        return (int) crc32.getValue();
+    }
+
     public ByteBuffer buildNeedleHeaderMeta() {
         ByteBuffer bb = ByteBuffer.allocate(NeedleConst._headerSize);
         bb.put(headerMagic);
@@ -202,7 +210,8 @@ public class Needle {
 
     public ByteBuffer buildNeedleFooterMeta() {
         ByteBuffer bb = ByteBuffer.allocate(NeedleConst._footerSize);
-
+        bb.put(footerMagic);
+        bb.putInt(calcCheckSum());
 
         return bb;
     }
