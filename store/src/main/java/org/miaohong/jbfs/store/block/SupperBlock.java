@@ -11,6 +11,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by miaohong on 16/1/13.
@@ -29,9 +30,9 @@ public class SupperBlock {
     private byte ver = (byte)0x01;
     private byte[] padding = new byte[SuperBlockConst.SUPER_BLOCK_PADDING_SIZE];
 
-    private Map<Long, Long> needleOffsetMap = new HashMap<Long, Long>();
+    private Map<Long, Long> needleOffsetMap = new ConcurrentHashMap<Long, Long>();
 
-    private Map<Long, Integer> needleSizeMap = new HashMap<Long, Integer>();
+    private Map<Long, Integer> needleSizeMap = new ConcurrentHashMap<Long, Integer>();
 
     private String supperBlockFilePath;
 

@@ -2,12 +2,15 @@ package org.miaohong.jbfs.store.store;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
 import org.miaohong.jbfs.store.config.StoreConfig;
 import org.miaohong.jbfs.store.exception.StoreAdminException;
 import org.miaohong.jbfs.store.needle.Needle;
 import org.miaohong.jbfs.store.volume.Volume;
-import org.miaohong.jbfs.zookeeper.conn.ZKConn;
+import org.miaohong.jbfs.zookeeper.conn.ZKUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,7 +31,7 @@ public class Store {
     private static Store instance = new Store();
 
     private StoreConfig storeConfig = StoreConfig.getInstance();
-    private ZooKeeper zk = null;
+    private ZKUtils zkUtils = null;
 
     private Map<Integer, Volume> volumes = new HashMap<Integer, Volume>();
     private List<Volume> freeVolumes = new ArrayList<Volume>();
@@ -51,11 +54,13 @@ public class Store {
 
     private void init() {
         try {
-            zk = ZKConn.getZK(storeConfig.getZookeeperAddrs(), storeConfig.getZookeeperTimeout());
+            zkUtils = ZKUtils.getZK(storeConfig.getZookeeperAddrs(), storeConfig.getZookeeperTimeout());
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
         }
+
+        zkInit();
         try {
             wvf = new FileOutputStream(storeConfig.storeVolumeIndex, true);
             wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, true);
@@ -77,9 +82,25 @@ public class Store {
         logger.debug("freeVolumes : " + freeVolumes);
         logger.debug("volumes : " + volumes);
 
-//        System.out.println("freeVolumes : " + freeVolumes);
-//        System.out.println("volumes : " + volumes);
     }
+
+    private void zkInit() {
+        //String zkPath = "/rack/" + storeConfig.storeRack + "/" + storeConfig.storeServerId;
+        String zkPath = "/rack";
+
+        try {
+            zkUtils.createNode(zkPath, "".getBytes(), ZooDefs.Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
+        } catch (KeeperException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
 
     private void parseFreeVolumeIndex() {
         List<String> bufLines = new ArrayList<String>();
@@ -108,6 +129,7 @@ public class Store {
     }
 
     private void parseVolumeIndex() {
+        // local
         List<String> bufLines = new ArrayList<String>();
         try {
             bufLines = IOUtils.readLines(rvf);
@@ -126,6 +148,10 @@ public class Store {
         } finally {
 
         }
+
+        // zk
+
+
     }
 
     private void saveFreeVolumeIndex() {

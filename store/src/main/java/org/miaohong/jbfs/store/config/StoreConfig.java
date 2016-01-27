@@ -22,6 +22,7 @@ public class StoreConfig {
 
     public static String storeVolumeIndex;
     public static String storeFreeVolumeIndex;
+    public static String storeRack;
     public static String storeServerId;
     public static String zookeeperAddrs;
     public static int zookeeperTimeout;
@@ -83,6 +84,8 @@ public class StoreConfig {
                     _instance.storeVolumeIndex = (String) propertie.get(key);
                 } else if (key.equals("store.free_volume_index")) {
                     _instance.storeFreeVolumeIndex = (String) propertie.get(key);
+                } else if (key.equals("store.rack")) {
+                    _instance.storeRack = (String) propertie.get(key);
                 } else if (key.equals("store.server_id")) {
                     _instance.storeServerId = (String) propertie.get(key);
                 } else if (key.equals("zookeeper.addrs")) {

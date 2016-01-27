@@ -1,5 +1,8 @@
 package org.miaohong.jbfs.store.server.controller;
 
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.miaohong.jbfs.store.block.SuperBlockConst;
 
 import java.io.FileNotFoundException;
@@ -35,42 +38,14 @@ public class Test {
         return instance;
     }
 
-
     public static void main(String[] args) {
-         FileChannel fc = null;
-        Test t = Test.getInstance();
-        System.out.println(t.getI());
+        CuratorFramework client = CuratorFrameworkFactory.builder()
+                .connectString("localhost:2181")
+                .sessionTimeoutMs(5000)
+                .connectionTimeoutMs(3000)
+                .retryPolicy(new ExponentialBackoffRetry(1000, 3))
+                .build();
 
-        Test t2 = Test.getInstance();
-        System.out.println(t2.getI());
-
-         byte[] magic = {(byte)0xab, (byte)0xcd, (byte)0xef, (byte)0x00};
-         byte ver = (byte)0x01;
-         byte[] padding = new byte[SuperBlockConst.SUPER_BLOCK_PADDING_SIZE];
-
-        try {
-            fc = new FileOutputStream(filePath, true).getChannel();
-
-            FileOutputStream ff = new FileOutputStream(filePath, true);
-
-            ByteBuffer bb = ByteBuffer.allocate(SuperBlockConst.SUPER_BLOCK_HEADER_SIZE);
-            bb.order(ByteOrder.BIG_ENDIAN);
-
-            bb.put(magic);
-            bb.put(ver);
-            bb.put(padding);
-
-            System.out.println(bb.toString());
-
-            ff.write(magic);
-            ff.write(ver);
-            ff.write(padding);
-
-            //fc.write(bb);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        client.start();
     }
 }
