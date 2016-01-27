@@ -38,13 +38,19 @@ public class StoreAdminController {
                               @RequestParam("idir") String idir, HttpServletRequest req, HttpServletResponse resp) {
         StoreAdminResp storeAdminResp = new StoreAdminResp();
 
-        store.addFreeVolume(n, bdir, idir);
+        try {
+            store.addFreeVolume(n, bdir, idir);
+            storeAdminResp.setCode(0);
+            storeAdminResp.setMsg("ok");
+        } catch (IOException e) {
+            e.printStackTrace();
+            storeAdminResp.setCode(-1);
+            storeAdminResp.setMsg(e.toString());
+        }
 
-        storeAdminResp.setCode(0);
-        storeAdminResp.setMsg("ok");
+
 
         Utils.printJson(resp, JSON.toJSONString(storeAdminResp));
-
     }
 
     @RequestMapping(value = "/add_volume", method = RequestMethod.POST)
@@ -56,6 +62,10 @@ public class StoreAdminController {
             storeAdminResp.setCode(0);
             storeAdminResp.setMsg("ok");
         } catch (StoreAdminException e) {
+            storeAdminResp.setCode(-1);
+            storeAdminResp.setMsg(e.toString());
+            e.printStackTrace();
+        } catch (IOException e) {
             storeAdminResp.setCode(-1);
             storeAdminResp.setMsg(e.toString());
             e.printStackTrace();

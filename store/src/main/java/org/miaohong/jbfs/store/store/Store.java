@@ -154,18 +154,16 @@ public class Store {
 
     }
 
-    private void saveFreeVolumeIndex() {
+    private void saveFreeVolumeIndex() throws IOException {
         System.out.println("saveFreeVolumeIndex");
-        try {
-            wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
-            for (Volume v : freeVolumes) {
-                wfvf.write((v.getSupperBlock().getSupperBlockFilePath() + ","
-                        + v.getIndex().getIndexFile() + "," + StoreConst.VOLUME_FREE_ID).getBytes());
-                wfvf.write("\n".getBytes());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
+        for (Volume v : freeVolumes) {
+            wfvf.write((v.getSupperBlock().getSupperBlockFilePath() + ","
+                    + v.getIndex().getIndexFile() + "," + StoreConst.VOLUME_FREE_ID).getBytes());
+            wfvf.write("\n".getBytes());
         }
+
     }
 
     private void saveVolumeIndex() {
@@ -203,7 +201,7 @@ public class Store {
 
     }
 
-    public void addFreeVolume(int n, String bDir, String iDir) {
+    public void addFreeVolume(int n, String bDir, String iDir) throws IOException {
         for (int i = 0; i < n; i++) {
             freeVolumeId.incrementAndGet();
 
@@ -215,7 +213,7 @@ public class Store {
         saveFreeVolumeIndex();
     }
 
-    public void addVolume(int vid) throws StoreAdminException {
+    public void addVolume(int vid) throws StoreAdminException, IOException {
         if (freeVolumes.size() == 0) {
             throw new StoreAdminException(ExceptionConst.ExceptionStoreNoFreeVolume);
         }
@@ -269,7 +267,11 @@ public class Store {
 
     public static void main(String[] args) {
         Store store = Store.getInstance();
-        store.addFreeVolume(2, "/tmp/store/", "/tmp/store/");
+        try {
+            store.addFreeVolume(2, "/tmp/store/", "/tmp/store/");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
