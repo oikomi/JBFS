@@ -198,7 +198,6 @@ public class Store {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void addFreeVolume(int n, String bDir, String iDir) throws IOException {
@@ -234,7 +233,7 @@ public class Store {
         return v;
     }
 
-    public void upload(int vid, int key, String cookie, long size, byte[] buf) throws StoreAdminException {
+    public void upload(int vid, int key, String cookie, long size, byte[] buf) throws StoreAdminException, IOException {
         if (size > StoreConst.NEEDLE_MAX_SIZE) {
             throw new StoreAdminException(ExceptionConst.ExceptionNeedleTooLarge);
         }
@@ -248,11 +247,9 @@ public class Store {
         }
 
         Needle needle = new Needle(vid, key, cookie, size, buf);
-        try {
-            v.addNeedle(needle);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        v.addNeedle(needle);
+
     }
 
     public byte[] get(int vid, String key, String cookie) throws StoreAdminException {
