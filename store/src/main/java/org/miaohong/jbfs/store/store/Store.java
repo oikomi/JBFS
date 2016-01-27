@@ -233,7 +233,7 @@ public class Store {
         return v;
     }
 
-    public void upload(int vid, int key, String cookie, long size, byte[] buf) throws StoreAdminException, IOException {
+    public void upload(int vid, long key, String cookie, long size, byte[] buf) throws StoreAdminException, IOException {
         if (size > StoreConst.NEEDLE_MAX_SIZE) {
             throw new StoreAdminException(ExceptionConst.ExceptionNeedleTooLarge);
         }

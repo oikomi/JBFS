@@ -54,7 +54,7 @@ public class StoreController {
 
         //System.out.println("upload");
         try {
-            store.upload(Integer.parseInt(vid), Integer.parseInt(key), cookie, file.getSize(), file.getBytes());
+            store.upload(Integer.parseInt(vid), Long.parseLong(key), cookie, file.getSize(), file.getBytes());
         } catch (StoreAdminException e) {
             e.printStackTrace();
         }

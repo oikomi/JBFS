@@ -60,7 +60,7 @@ public class Needle {
         
     }
 
-    public Needle(int vid, int key, String cookie, long size, byte[] buf) {
+    public Needle(int vid, long key, String cookie, long size, byte[] buf) {
         this.vid = vid;
         this.key = key;
         this.cookie = Integer.parseInt(cookie);
