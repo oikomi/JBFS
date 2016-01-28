@@ -15,11 +15,21 @@
         <module>zookeeper</module>
     </modules>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <zookeeper.version>3.4.6</zookeeper.version>
+        <spring-webmvc.version>4.2.3.RELEASE</spring-webmvc.version>
+        <spring-dao.version>2.0.8</spring-dao.version>
+        <spring-jdbc.version>4.2.3.RELEASE</spring-jdbc.version>
+        <apache-curator.version>2.9.1</apache-curator.version>
+        <apache-client.version>2.9.1</apache-client.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
-            <version>3.4.6</version>
+            <version>${zookeeper.version}</version>
         </dependency>
 
         <dependency>
@@ -31,19 +41,19 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>4.2.3.RELEASE</version>
+            <version>${spring-webmvc.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-dao</artifactId>
-            <version>2.0.8</version>
+            <version>${spring-dao.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>4.2.3.RELEASE</version>
+            <version>${spring-jdbc.version}</version>
         </dependency>
 
         <dependency>
@@ -70,23 +80,23 @@
             <version>1.2.7</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-framework</artifactId>
-            <version>3.0.0</version>
+            <version>2.9.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>apache-curator</artifactId>
-            <version>3.0.0</version>
+            <version>${apache-curator.version}</version>
+
         </dependency>
 
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-client</artifactId>
-            <version>3.0.0</version>
+            <version>${apache-client.version}</version>
         </dependency>
 
     </dependencies>

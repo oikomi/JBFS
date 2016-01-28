@@ -61,13 +61,13 @@ public class StoreAdminController {
             store.addVolume(vid);
             storeAdminResp.setCode(0);
             storeAdminResp.setMsg("ok");
-        } catch (StoreAdminException e) {
-            storeAdminResp.setCode(-1);
-            storeAdminResp.setMsg(e.toString());
-            e.printStackTrace();
         } catch (IOException e) {
             storeAdminResp.setCode(-1);
             storeAdminResp.setMsg(e.toString());
+            e.printStackTrace();
+        } catch (StoreAdminException.StoreVolumeExistException e) {
+            e.printStackTrace();
+        } catch (StoreAdminException.StoreNoFreeVolumeException e) {
             e.printStackTrace();
         }
 

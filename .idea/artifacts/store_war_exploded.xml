@@ -39,9 +39,9 @@
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Maven: com.google.guava:guava:19.0" />
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.7" />
-          <element id="library" level="project" name="Maven: org.apache.curator:curator-framework:3.0.0" />
-          <element id="library" level="project" name="Maven: org.apache.curator:apache-curator:3.0.0" />
-          <element id="library" level="project" name="Maven: org.apache.curator:curator-client:3.0.0" />
+          <element id="library" level="project" name="Maven: org.apache.curator:curator-framework:2.9.1" />
+          <element id="library" level="project" name="Maven: org.apache.curator:apache-curator:2.9.1" />
+          <element id="library" level="project" name="Maven: org.apache.curator:curator-client:2.9.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

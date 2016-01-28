@@ -14,6 +14,7 @@ import org.apache.zookeeper.data.ACL;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Created by miaohong on 16/1/13.
@@ -22,37 +23,35 @@ public class ZKUtils {
     private static ZKUtils zkUtils = new ZKUtils();
     private static ZooKeeper zk;
     private static CuratorFramework client;
-
+    
     private ZKUtils() {
 
     }
 
-    public static ZooKeeper getZk() {
-        return zk;
-    }
+    public static ZKUtils getZK(String host, int timeout) throws IOException {
+//        zk = new ZooKeeper(host, timeout, new Watcher() {
+//            public void process(WatchedEvent event) {
+//                System.out.println("已经触发了" + event.getType() + "事件！");
+//            }
+//        });
+//        try {
+//            connectedSemaphore.await();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
-    public static void setZk(ZooKeeper zk) {
-        ZKUtils.zk = zk;
-    }
-
-
-    public static ZKUtils getZK(String host, int timeout) throws IOException{
-        zk = new ZooKeeper(host, timeout, new Watcher() {
-            public void process(WatchedEvent event) {
-                System.out.println("已经触发了" + event.getType() + "事件！");
-            }
-        });
-
-        System.out.println(zk.toString());
+        //System.out.println(zk.toString());
 
         RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
         //client = CuratorFrameworkFactory.newClient(host, retryPolicy);
-        CuratorFramework client = CuratorFrameworkFactory.builder()
+        client = CuratorFrameworkFactory.builder()
                 .connectString(host)
                 .sessionTimeoutMs(5000)
-                .connectionTimeoutMs(3000)
+                .connectionTimeoutMs(5000)
                 .retryPolicy(new ExponentialBackoffRetry(1000, 3))
                 .build();
+
+        System.out.println(client);
 
         client.start();
 
@@ -61,21 +60,21 @@ public class ZKUtils {
 
     public void createNode(String path, byte[] data, ArrayList<ACL> acl,
                            CreateMode mode) throws Exception {
-        zk.create(path, data, acl, mode);
-        //client.create().forPath("/my/path", data);
+        //zk.create(path, data, acl, mode);
+        client.create().forPath(path, data);
     }
 
 
-    public void getChild(String path) throws KeeperException, InterruptedException{
-        try{
+    public void getChild(String path) throws KeeperException, InterruptedException {
+        try {
             List<String> list = zk.getChildren(path, false);
-            if(list.isEmpty()){
+            if (list.isEmpty()) {
 
-            }else{
-                for(String child : list){
+            } else {
+                for (String child : list) {
                 }
             }
-        }catch (KeeperException.NoNodeException e) {
+        } catch (KeeperException.NoNodeException e) {
             throw e;
         }
     }

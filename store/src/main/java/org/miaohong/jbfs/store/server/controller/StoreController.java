@@ -55,10 +55,13 @@ public class StoreController {
         //System.out.println("upload");
         try {
             store.upload(Integer.parseInt(vid), Long.parseLong(key), cookie, file.getSize(), file.getBytes());
-        } catch (StoreAdminException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-        catch (IOException e) {
+        } catch (StoreAdminException.NeedleTooLargeException e) {
+            e.printStackTrace();
+        } catch (StoreAdminException.VolumeNotExistException e) {
+            e.printStackTrace();
+        } catch (StoreAdminException.NeedleIsEmptyException e) {
             e.printStackTrace();
         }
 
@@ -74,11 +77,11 @@ public class StoreController {
 //            bos.write(buf);
 
             new FileOutputStream("/tmp/a").write(buf);
-        } catch (StoreAdminException e) {
-            e.printStackTrace();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (StoreAdminException.VolumeNotExistException e) {
             e.printStackTrace();
         }
 

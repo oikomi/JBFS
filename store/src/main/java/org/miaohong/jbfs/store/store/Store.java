@@ -7,6 +7,7 @@ import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
 import org.miaohong.jbfs.store.config.StoreConfig;
+import org.miaohong.jbfs.store.exception.ExceptionConst;
 import org.miaohong.jbfs.store.exception.StoreAdminException;
 import org.miaohong.jbfs.store.needle.Needle;
 import org.miaohong.jbfs.store.volume.Volume;
@@ -212,13 +213,16 @@ public class Store {
         saveFreeVolumeIndex();
     }
 
-    public void addVolume(int vid) throws StoreAdminException, IOException {
+    public void addVolume(int vid) throws StoreAdminException.StoreNoFreeVolumeException,
+            StoreAdminException.StoreVolumeExistException, IOException {
         if (freeVolumes.size() == 0) {
-            throw new StoreAdminException(ExceptionConst.ExceptionStoreNoFreeVolume);
+            // throw new StoreAdminException(ExceptionConst.ExceptionStoreNoFreeVolume);
+            throw new StoreAdminException.StoreNoFreeVolumeException();
         }
 
         if (volumes.get(vid) != null) {
-            throw new StoreAdminException(ExceptionConst.ExceptionStoreVolumeExist);
+            // throw new StoreAdminException(ExceptionConst.ExceptionStoreVolumeExist);
+            throw new StoreAdminException.StoreVolumeExistException();
         }
 
         Volume v = getFreeVolume();
@@ -233,17 +237,21 @@ public class Store {
         return v;
     }
 
-    public void upload(int vid, long key, String cookie, long size, byte[] buf) throws StoreAdminException, IOException {
+    public void upload(int vid, long key, String cookie, long size, byte[] buf) throws StoreAdminException.NeedleTooLargeException,
+            StoreAdminException.NeedleIsEmptyException, StoreAdminException.VolumeNotExistException, IOException {
         if (size > StoreConst.NEEDLE_MAX_SIZE) {
-            throw new StoreAdminException(ExceptionConst.ExceptionNeedleTooLarge);
+            // throw new StoreAdminException(ExceptionConst.ExceptionNeedleTooLarge);
+            throw new StoreAdminException.NeedleTooLargeException();
         }
         if (size == 0) {
-            throw new StoreAdminException(ExceptionConst.ExceptionNeedleIsEmpty);
+            // throw new StoreAdminException(ExceptionConst.ExceptionNeedleIsEmpty);
+            throw new StoreAdminException.NeedleIsEmptyException();
         }
 
         Volume v = volumes.get(vid);
         if (v == null) {
-            throw new StoreAdminException(ExceptionConst.ExceptionVolumeNotExist);
+            // throw new StoreAdminException(ExceptionConst.ExceptionVolumeNotExist);
+            throw new StoreAdminException.VolumeNotExistException();
         }
 
         Needle needle = new Needle(vid, key, cookie, size, buf);
@@ -252,10 +260,11 @@ public class Store {
 
     }
 
-    public byte[] get(int vid, String key, String cookie) throws StoreAdminException {
+    public byte[] get(int vid, String key, String cookie) throws StoreAdminException.VolumeNotExistException {
         Volume v = volumes.get(vid);
         if (v == null) {
-            throw new StoreAdminException(ExceptionConst.ExceptionVolumeNotExist);
+            //throw new StoreAdminException(ExceptionConst.ExceptionVolumeNotExist);
+            throw new StoreAdminException.VolumeNotExistException();
         }
 
         return v.getNeedle(Long.parseLong(key), Integer.parseInt(cookie));
