@@ -48,8 +48,6 @@ public class StoreAdminController {
             storeAdminResp.setMsg(e.toString());
         }
 
-
-
         Utils.printJson(resp, JSON.toJSONString(storeAdminResp));
     }
 

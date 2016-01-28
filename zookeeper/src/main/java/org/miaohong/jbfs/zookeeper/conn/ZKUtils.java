@@ -68,7 +68,7 @@ public class ZKUtils {
                 client.create().forPath(tmpPath, data);
             } catch (Exception e) {
                 if (e instanceof KeeperException.NodeExistsException) {
-                    System.out.println("node " + tmpPath + "already exist");
+                    System.out.println("node " + tmpPath + "  already exist");
                 }
 
                 // e.printStackTrace();
@@ -76,22 +76,32 @@ public class ZKUtils {
         }
     }
 
-
-    public void getChild(String path) throws KeeperException, InterruptedException {
+    public void setData(String path, byte[] payload) {
         try {
-            List<String> list = zk.getChildren(path, false);
-            if (list.isEmpty()) {
-
-            } else {
-                for (String child : list) {
-                }
-            }
-        } catch (KeeperException.NoNodeException e) {
-            throw e;
+            client.setData().forPath(path, payload);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public byte[] getData(String path) throws KeeperException, InterruptedException {
-        return  zk.getData(path, false, null);
+    public byte[] getData(String path) {
+        try {
+            return client.getData().forPath(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+
+    public List<String> getChild(String path) {
+        try {
+            return client.getChildren().forPath(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }

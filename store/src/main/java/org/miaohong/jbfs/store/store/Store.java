@@ -79,7 +79,6 @@ public class Store {
         parseFreeVolumeIndex();
         parseVolumeIndex();
 
-        //System.out.println();
         logger.debug("freeVolumes : " + freeVolumes);
         logger.debug("volumes : " + volumes);
 
@@ -87,15 +86,12 @@ public class Store {
 
     private void zkInit() {
         String zkPath = "/rack/" + storeConfig.storeRack + "/" + storeConfig.storeServerId;
-       // String zkPath = "/rack";
 
         try {
             zkUtils.createNode(zkPath, "".getBytes(), ZooDefs.Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
 
@@ -197,6 +193,12 @@ public class Store {
         }
     }
 
+    private void saveZkVolumeIndex() {
+
+
+    }
+
+
     public void addFreeVolume(int n, String bDir, String iDir) throws IOException {
         for (int i = 0; i < n; i++) {
             freeVolumeId.incrementAndGet();
@@ -224,8 +226,10 @@ public class Store {
         Volume v = getFreeVolume();
         volumes.put(vid, v);
         saveVolumeIndex();
+        saveZkVolumeIndex();
         saveFreeVolumeIndex();
     }
+
 
     private Volume getFreeVolume() {
         Volume v = freeVolumes.get(0);
