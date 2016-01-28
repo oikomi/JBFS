@@ -23,7 +23,7 @@ public class ZKUtils {
     private static ZKUtils zkUtils = new ZKUtils();
     private static ZooKeeper zk;
     private static CuratorFramework client;
-    
+
     private ZKUtils() {
 
     }
@@ -48,10 +48,8 @@ public class ZKUtils {
                 .connectString(host)
                 .sessionTimeoutMs(5000)
                 .connectionTimeoutMs(5000)
-                .retryPolicy(new ExponentialBackoffRetry(1000, 3))
+                .retryPolicy(retryPolicy)
                 .build();
-
-        System.out.println(client);
 
         client.start();
 
@@ -59,9 +57,23 @@ public class ZKUtils {
     }
 
     public void createNode(String path, byte[] data, ArrayList<ACL> acl,
-                           CreateMode mode) throws Exception {
+                           CreateMode mode) {
         //zk.create(path, data, acl, mode);
-        client.create().forPath(path, data);
+        String[] pathList = path.split("/");
+        String tmpPath = "";
+
+        for (int i = 1; i < pathList.length; i++) {
+            tmpPath = tmpPath + "/" + pathList[i];
+            try {
+                client.create().forPath(tmpPath, data);
+            } catch (Exception e) {
+                if (e instanceof KeeperException.NodeExistsException) {
+                    System.out.println("node " + tmpPath + "already exist");
+                }
+
+                // e.printStackTrace();
+            }
+        }
     }
 
 

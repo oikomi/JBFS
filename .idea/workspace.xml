@@ -72,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Store.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="92" column="26" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
+              <caret line="92" column="25" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,8 +95,8 @@
       <file leaf-file-name="ZKUtils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33173078">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.7644231">
+              <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -177,11 +177,11 @@
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/ExceptionConst.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/exception/StoreAdminException.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/exception/JbfsException.java" />
-        <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Store.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreController.java" />
         <option value="$PROJECT_DIR$/zookeeper/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Store.java" />
         <option value="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java" />
       </list>
     </option>
@@ -1325,12 +1325,12 @@
       <workItem from="1453873313686" duration="7288000" />
       <workItem from="1453883332897" duration="510000" />
       <workItem from="1453951761937" duration="17000" />
-      <workItem from="1453954905831" duration="3420000" />
+      <workItem from="1453954905831" duration="5022000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129446000" />
+    <option name="totallyTimeSpent" value="131048000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1239" height="777" extended-state="0" />
@@ -1688,16 +1688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1750,16 +1740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Store.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="26" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/curator/curator-framework/2.9.1/curator-framework-2.9.1.jar!/org/apache/curator/framework/api/PathAndBytesable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19280206">
@@ -1768,10 +1748,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Store.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="25" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33173078">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.7644231">
+          <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
           <folding />
         </state>
       </provider>

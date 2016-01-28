@@ -86,15 +86,11 @@ public class Store {
     }
 
     private void zkInit() {
-        //String zkPath = "/rack/" + storeConfig.storeRack + "/" + storeConfig.storeServerId;
-        String zkPath = "/rack";
+        String zkPath = "/rack/" + storeConfig.storeRack + "/" + storeConfig.storeServerId;
+       // String zkPath = "/rack";
 
         try {
             zkUtils.createNode(zkPath, "".getBytes(), ZooDefs.Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
-        } catch (KeeperException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
