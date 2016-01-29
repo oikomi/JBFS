@@ -40,6 +40,12 @@ public class StoreAdminException extends Exception {
         }
     }
 
+    public static class StoreFreeVolumeNotExistException extends JbfsException {
+        public StoreFreeVolumeNotExistException() {
+            super(ExceptionConst.ExceptionFreeVolumeNotExist);
+        }
+    }
+
 //    @Override
 //    public String toString() {
 //        return this.msg;

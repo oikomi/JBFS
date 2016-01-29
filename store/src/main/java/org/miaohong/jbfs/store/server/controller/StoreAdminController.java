@@ -67,6 +67,8 @@ public class StoreAdminController {
             e.printStackTrace();
         } catch (StoreAdminException.StoreNoFreeVolumeException e) {
             e.printStackTrace();
+        } catch (StoreAdminException.StoreFreeVolumeNotExistException e) {
+            e.printStackTrace();
         }
 
         Utils.printJson(resp, JSON.toJSONString(storeAdminResp));

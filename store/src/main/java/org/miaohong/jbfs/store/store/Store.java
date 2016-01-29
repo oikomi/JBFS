@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -39,8 +41,9 @@ public class Store {
 
     private String zkRootPath;
 
-    private Map<Integer, Volume> volumes = new HashMap<Integer, Volume>();
-    private List<Volume> freeVolumes = new ArrayList<Volume>();
+    private Map<Integer, Volume> volumes = new ConcurrentHashMap<Integer, Volume>();
+    //private List<Volume> freeVolumes = new ArrayList<Volume>();
+    private Map<Integer, Volume> freeVolumes = new ConcurrentHashMap<Integer, Volume>();
 
     private FileOutputStream wvf = null;
     private FileOutputStream wfvf = null;
@@ -48,7 +51,7 @@ public class Store {
     private FileInputStream rvf = null;
     private FileInputStream rfvf = null;
 
-    private AtomicLong freeVolumeId = new AtomicLong(0);
+    private AtomicInteger freeVolumeId = new AtomicInteger(0);
 
     private Store() {
         init();
@@ -115,7 +118,8 @@ public class Store {
 
                 Volume v = new Volume(Integer.parseInt(tmpList[2]), tmpList[0], tmpList[1]);
 
-                freeVolumes.add(v);
+                //freeVolumes.add(v);
+                freeVolumes.put(freeVolumeId.get(), v);
 
                 freeVolumeId.incrementAndGet();
             }
@@ -158,41 +162,55 @@ public class Store {
         System.out.println("saveFreeVolumeIndex");
 
         wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
-        for (Volume v : freeVolumes) {
-            wfvf.write((v.getSupperBlock().getSupperBlockFilePath() + ","
-                    + v.getIndex().getIndexFile() + "," + StoreConst.VOLUME_FREE_ID).getBytes());
+//        for (Volume v : freeVolumes) {
+//            wfvf.write((v.getSupperBlock().getSupperBlockFilePath() + ","
+//                    + v.getIndex().getIndexFile() + "," + StoreConst.VOLUME_FREE_ID).getBytes());
+//            wfvf.write("\n".getBytes());
+//        }
+
+        for (Map.Entry<Integer, Volume> entry : freeVolumes.entrySet()) {
+            wfvf.write((entry.getValue().getSupperBlock().getSupperBlockFilePath() + ","
+                    + entry.getValue().getIndex().getIndexFile() + "," + entry.getKey()).getBytes());
             wfvf.write("\n".getBytes());
         }
 
     }
 
     private void saveVolumeIndex(Volume v) {
+        System.out.println("saveVolumeIndex");
+        System.out.println(volumes);
         try {
             wvf = new FileOutputStream(storeConfig.storeVolumeIndex, false);
             for (Map.Entry<Integer, Volume> entry : volumes.entrySet()) {
-                int i = 0;
-                while(true) {
-                    if (Utils.isFileExist(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).
-                            getAbsolutePath() + entry.getKey() + "_" + i)) {
-                        i ++;
-                        continue;
-                    } else {
-                        Utils.renameFile(entry.getValue().getSupperBlock().getSupperBlockFilePath(),
-                                Utils.getFileDir(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).
-                                        getAbsolutePath()) + entry.getKey() + "_" + i);
+                System.out.println(entry.getKey());
+                wvf.write((entry.getValue().getSupperBlock().getSupperBlockFilePath() + ","
+                        + entry.getValue().getIndex().getIndexFile() + "," + entry.getKey()).getBytes());
+                wvf.write("\n".getBytes());
 
-                        Utils.renameFile(entry.getValue().getIndex().getIndexFile(),
-                                Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath())
-                                        + entry.getKey() + "_" + i + StoreConst.VOLUME_INDEX_EXT);
 
-                        wvf.write(((Utils.getFileDir(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).
-                                getAbsolutePath()) + entry.getKey() + "_" + i + "," +
-                                Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath()) +
-                                entry.getKey() + "_" + i + StoreConst.VOLUME_INDEX_EXT + "," + entry.getKey()).getBytes()));
-                        wvf.write("\n".getBytes());
-                        break;
-                    }
-                }
+//                int i = 0;
+//                while(true) {
+//                    if (Utils.isFileExist(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).
+//                            getAbsolutePath() + entry.getKey() + "_" + i)) {
+//                        i ++;
+//                        continue;
+//                    } else {
+//                        Utils.renameFile(entry.getValue().getSupperBlock().getSupperBlockFilePath(),
+//                                Utils.getFileDir(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).
+//                                        getAbsolutePath()) + entry.getKey() + "_" + i);
+//
+//                        Utils.renameFile(entry.getValue().getIndex().getIndexFile(),
+//                                Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath())
+//                                        + entry.getKey() + "_" + i + StoreConst.VOLUME_INDEX_EXT);
+//
+//                        wvf.write(((Utils.getFileDir(new File(entry.getValue().getSupperBlock().getSupperBlockFilePath()).
+//                                getAbsolutePath()) + entry.getKey() + "_" + i + "," +
+//                                Utils.getFileDir(new File(entry.getValue().getIndex().getIndexFile()).getAbsolutePath()) +
+//                                entry.getKey() + "_" + i + StoreConst.VOLUME_INDEX_EXT + "," + entry.getKey()).getBytes()));
+//                        wvf.write("\n".getBytes());
+//                        break;
+//                    }
+//                }
 
             }
 
@@ -221,16 +239,17 @@ public class Store {
         for (int i = 0; i < n; i++) {
             freeVolumeId.incrementAndGet();
 
-            Volume v = new Volume(StoreConst.VOLUME_FREE_ID, bDir + StoreConst.FREE_VOLUME_PREFIX + freeVolumeId.get(),
+            Volume v = new Volume(freeVolumeId.get(), bDir + StoreConst.FREE_VOLUME_PREFIX + freeVolumeId.get(),
                 iDir + StoreConst.FREE_VOLUME_PREFIX + freeVolumeId.get() + StoreConst.VOLUME_INDEX_EXT);
 
-            freeVolumes.add(v);
+            freeVolumes.put(freeVolumeId.get(), v);
         }
         saveFreeVolumeIndex();
     }
 
     public void addVolume(int vid) throws StoreAdminException.StoreNoFreeVolumeException,
-            StoreAdminException.StoreVolumeExistException, IOException {
+            StoreAdminException.StoreVolumeExistException, IOException,
+            StoreAdminException.StoreFreeVolumeNotExistException {
         if (freeVolumes.size() == 0) {
             throw new StoreAdminException.StoreNoFreeVolumeException();
         }
@@ -239,22 +258,32 @@ public class Store {
             throw new StoreAdminException.StoreVolumeExistException();
         }
 
+        if (freeVolumes.get(vid) == null) {
+            throw new StoreAdminException.StoreFreeVolumeNotExistException();
+        }
+
         Volume v = getFreeVolume(vid);
         volumes.put(vid, v);
         saveVolumeIndex(v);
         saveFreeVolumeIndex();
     }
 
+    private void removeFreeVolume(Volume v) {
+        v.close();
+        new File(v.getSupperBlock().getSupperBlockFilePath()).delete();
+        new File(v.getIndex().getIndexFile()).delete();
+        freeVolumes.remove(v.getId());
+    }
 
     private Volume getFreeVolume(int vid) {
-        Volume v = freeVolumes.get(0);
+        Volume v = freeVolumes.get(vid);
 
         Volume nv = new Volume(vid, Utils.getFileDir(new File(v.getSupperBlock().getSupperBlockFilePath()).
-                getAbsolutePath()) + vid + "_" + 0, Utils.getFileDir(new File(v.getIndex().getIndexFile()).
-                        getAbsolutePath()) + vid + "_" + 0 + StoreConst.VOLUME_INDEX_EXT);
+                getAbsolutePath()) + v.getId() + "_" + 0, Utils.getFileDir(new File(v.getIndex().getIndexFile()).
+                        getAbsolutePath()) + v.getId() + "_" + 0 + StoreConst.VOLUME_INDEX_EXT);
 
-        v.close();
-        freeVolumes.remove(0);
+        removeFreeVolume(v);
+
         return nv;
     }
 
