@@ -58,11 +58,18 @@ public class Volume {
 
     }
 
+    public void close() {
+        supperBlock.close();
+        index.close();
+
+    }
+
     @Override
     public String toString() {
         return "Volume: id = " + id + " supperBlock = " + supperBlock.getSupperBlockFilePath()
                 + " index = " + index.getIndexFile();
     }
+
 
 
 }

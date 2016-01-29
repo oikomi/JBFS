@@ -156,4 +156,17 @@ public class SupperBlock {
     }
 
 
+    public void close() {
+        try {
+            if (rf != null) {
+                rf.close();
+            }
+
+            if (wf != null) {
+                wf.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

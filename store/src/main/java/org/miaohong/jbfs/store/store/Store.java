@@ -1,5 +1,6 @@
 package org.miaohong.jbfs.store.store;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.apache.zookeeper.CreateMode;
@@ -11,6 +12,8 @@ import org.miaohong.jbfs.store.exception.ExceptionConst;
 import org.miaohong.jbfs.store.exception.StoreAdminException;
 import org.miaohong.jbfs.store.needle.Needle;
 import org.miaohong.jbfs.store.volume.Volume;
+import org.miaohong.jbfs.store.zk.ZkStoreData;
+import org.miaohong.jbfs.store.zk.ZkStoreVolumeData;
 import org.miaohong.jbfs.zookeeper.conn.ZKUtils;
 
 import java.io.File;
@@ -33,6 +36,8 @@ public class Store {
 
     private StoreConfig storeConfig = StoreConfig.getInstance();
     private ZKUtils zkUtils = null;
+
+    private String zkRootPath;
 
     private Map<Integer, Volume> volumes = new HashMap<Integer, Volume>();
     private List<Volume> freeVolumes = new ArrayList<Volume>();
@@ -85,13 +90,15 @@ public class Store {
     }
 
     private void zkInit() {
-        String zkPath = "/rack/" + storeConfig.storeRack + "/" + storeConfig.storeServerId;
+        zkRootPath = "/rack/" + storeConfig.storeRack + "/" + storeConfig.storeServerId;
 
         try {
-            zkUtils.createNode(zkPath, "".getBytes(), ZooDefs.Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
+            zkUtils.createNode(zkRootPath, "".getBytes(), ZooDefs.Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        saveZkStoreData();
     }
 
 
@@ -159,7 +166,7 @@ public class Store {
 
     }
 
-    private void saveVolumeIndex() {
+    private void saveVolumeIndex(Volume v) {
         try {
             wvf = new FileOutputStream(storeConfig.storeVolumeIndex, false);
             for (Map.Entry<Integer, Volume> entry : volumes.entrySet()) {
@@ -188,14 +195,25 @@ public class Store {
                 }
 
             }
+
+            // save to zk
+            ZkStoreVolumeData zkStoreVolumeData = new ZkStoreVolumeData(v.getSupperBlock().getSupperBlockFilePath(),
+                    v.getIndex().getIndexFile(), v.getId());
+
+            zkUtils.createNode(zkRootPath + "/" + v.getId(), JSON.toJSONString(zkStoreVolumeData).getBytes(),
+                    ZooDefs.Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
     }
 
-    private void saveZkVolumeIndex() {
+    private void saveZkStoreData() {
+        ZkStoreData zkStoreData = new ZkStoreData(storeConfig.storeAdmin, storeConfig.storeApi,
+                storeConfig.storeServerId, storeConfig.storeRack, 0);
 
-
+        zkUtils.setData(zkRootPath, JSON.toJSONString(zkStoreData).getBytes());
     }
 
 
@@ -214,56 +232,54 @@ public class Store {
     public void addVolume(int vid) throws StoreAdminException.StoreNoFreeVolumeException,
             StoreAdminException.StoreVolumeExistException, IOException {
         if (freeVolumes.size() == 0) {
-            // throw new StoreAdminException(ExceptionConst.ExceptionStoreNoFreeVolume);
             throw new StoreAdminException.StoreNoFreeVolumeException();
         }
 
         if (volumes.get(vid) != null) {
-            // throw new StoreAdminException(ExceptionConst.ExceptionStoreVolumeExist);
             throw new StoreAdminException.StoreVolumeExistException();
         }
 
-        Volume v = getFreeVolume();
+        Volume v = getFreeVolume(vid);
         volumes.put(vid, v);
-        saveVolumeIndex();
-        saveZkVolumeIndex();
+        saveVolumeIndex(v);
         saveFreeVolumeIndex();
     }
 
 
-    private Volume getFreeVolume() {
+    private Volume getFreeVolume(int vid) {
         Volume v = freeVolumes.get(0);
+
+        Volume nv = new Volume(vid, Utils.getFileDir(new File(v.getSupperBlock().getSupperBlockFilePath()).
+                getAbsolutePath()) + vid + "_" + 0, Utils.getFileDir(new File(v.getIndex().getIndexFile()).
+                        getAbsolutePath()) + vid + "_" + 0 + StoreConst.VOLUME_INDEX_EXT);
+
+        v.close();
         freeVolumes.remove(0);
-        return v;
+        return nv;
     }
 
     public void upload(int vid, long key, String cookie, long size, byte[] buf) throws StoreAdminException.NeedleTooLargeException,
             StoreAdminException.NeedleIsEmptyException, StoreAdminException.VolumeNotExistException, IOException {
         if (size > StoreConst.NEEDLE_MAX_SIZE) {
-            // throw new StoreAdminException(ExceptionConst.ExceptionNeedleTooLarge);
             throw new StoreAdminException.NeedleTooLargeException();
         }
         if (size == 0) {
-            // throw new StoreAdminException(ExceptionConst.ExceptionNeedleIsEmpty);
             throw new StoreAdminException.NeedleIsEmptyException();
         }
 
         Volume v = volumes.get(vid);
         if (v == null) {
-            // throw new StoreAdminException(ExceptionConst.ExceptionVolumeNotExist);
             throw new StoreAdminException.VolumeNotExistException();
         }
 
         Needle needle = new Needle(vid, key, cookie, size, buf);
 
         v.addNeedle(needle);
-
     }
 
     public byte[] get(int vid, String key, String cookie) throws StoreAdminException.VolumeNotExistException {
         Volume v = volumes.get(vid);
         if (v == null) {
-            //throw new StoreAdminException(ExceptionConst.ExceptionVolumeNotExist);
             throw new StoreAdminException.VolumeNotExistException();
         }
 

@@ -34,4 +34,8 @@ public class Index {
 
 
     }
+
+    public void close() {
+
+    }
 }
