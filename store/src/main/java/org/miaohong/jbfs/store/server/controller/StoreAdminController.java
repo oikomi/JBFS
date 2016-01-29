@@ -64,10 +64,16 @@ public class StoreAdminController {
             storeAdminResp.setMsg(e.toString());
             e.printStackTrace();
         } catch (StoreAdminException.StoreVolumeExistException e) {
+            storeAdminResp.setCode(-1);
+            storeAdminResp.setMsg(e.toString());
             e.printStackTrace();
         } catch (StoreAdminException.StoreNoFreeVolumeException e) {
+            storeAdminResp.setCode(-1);
+            storeAdminResp.setMsg(e.toString());
             e.printStackTrace();
         } catch (StoreAdminException.StoreFreeVolumeNotExistException e) {
+            storeAdminResp.setCode(-1);
+            storeAdminResp.setMsg(e.toString());
             e.printStackTrace();
         }
 

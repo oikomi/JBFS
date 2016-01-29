@@ -76,6 +76,14 @@ public class ZKUtils {
         }
     }
 
+    public void deleteNode(String path) {
+        try {
+            client.delete().forPath(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void setData(String path, byte[] payload) {
         try {
             client.setData().forPath(path, payload);

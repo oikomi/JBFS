@@ -119,9 +119,9 @@ public class Store {
                 Volume v = new Volume(Integer.parseInt(tmpList[2]), tmpList[0], tmpList[1]);
 
                 //freeVolumes.add(v);
-                freeVolumes.put(freeVolumeId.get(), v);
+                freeVolumes.put(v.getId(), v);
 
-                freeVolumeId.incrementAndGet();
+                //freeVolumeId.incrementAndGet();
             }
 
             System.out.println(freeVolumes);
@@ -130,6 +130,25 @@ public class Store {
         } finally {
 
         }
+    }
+
+    private void initZkVolumes() {
+        List<String> list = new ArrayList<String>();
+        list = zkUtils.getChild(zkRootPath);
+
+        System.out.println(list);
+
+        for (String s : list) {
+            zkUtils.deleteNode(zkRootPath + "/" + s);
+        }
+        for (Map.Entry<Integer, Volume> entry : volumes.entrySet()) {
+            ZkStoreVolumeData zkStoreVolumeData = new ZkStoreVolumeData(entry.getValue().getSupperBlock().
+                    getSupperBlockFilePath(), entry.getValue().getIndex().getIndexFile(), entry.getKey());
+
+            zkUtils.createNode(zkRootPath + "/" + entry.getKey(), JSON.toJSONString(zkStoreVolumeData).getBytes(),
+                    ZooDefs.Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
+        }
+
     }
 
     private void parseVolumeIndex() {
@@ -155,8 +174,11 @@ public class Store {
 
         // zk
 
+        initZkVolumes();
 
     }
+
+
 
     private void saveFreeVolumeIndex() throws IOException {
         System.out.println("saveFreeVolumeIndex");
@@ -177,8 +199,6 @@ public class Store {
     }
 
     private void saveVolumeIndex(Volume v) {
-        System.out.println("saveVolumeIndex");
-        System.out.println(volumes);
         try {
             wvf = new FileOutputStream(storeConfig.storeVolumeIndex, false);
             for (Map.Entry<Integer, Volume> entry : volumes.entrySet()) {
@@ -186,7 +206,6 @@ public class Store {
                 wvf.write((entry.getValue().getSupperBlock().getSupperBlockFilePath() + ","
                         + entry.getValue().getIndex().getIndexFile() + "," + entry.getKey()).getBytes());
                 wvf.write("\n".getBytes());
-
 
 //                int i = 0;
 //                while(true) {
@@ -223,8 +242,6 @@ public class Store {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void saveZkStoreData() {
@@ -233,7 +250,6 @@ public class Store {
 
         zkUtils.setData(zkRootPath, JSON.toJSONString(zkStoreData).getBytes());
     }
-
 
     public void addFreeVolume(int n, String bDir, String iDir) throws IOException {
         for (int i = 0; i < n; i++) {
