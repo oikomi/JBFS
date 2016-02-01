@@ -49,19 +49,15 @@ public class Volume {
 
     public void addNeedle(Needle needle) throws IOException {
         supperBlock.addNeedle(needle);
-
     }
 
     public byte[] getNeedle(long key, int cookie) {
-
         return supperBlock.getNeedle(key, cookie);
-
     }
 
     public void close() {
         supperBlock.close();
         index.close();
-
     }
 
     @Override
@@ -69,7 +65,4 @@ public class Volume {
         return "Volume: id = " + id + " supperBlock = " + supperBlock.getSupperBlockFilePath()
                 + " index = " + index.getIndexFile();
     }
-
-
-
 }

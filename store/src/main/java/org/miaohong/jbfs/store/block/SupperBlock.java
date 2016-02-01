@@ -31,7 +31,6 @@ public class SupperBlock {
     private byte[] padding = new byte[SuperBlockConst.SUPER_BLOCK_PADDING_SIZE];
 
     private Map<Long, Long> needleOffsetMap = new ConcurrentHashMap<Long, Long>();
-
     private Map<Long, Integer> needleSizeMap = new ConcurrentHashMap<Long, Integer>();
 
     private String supperBlockFilePath;
@@ -151,10 +150,8 @@ public class SupperBlock {
     }
 
     public synchronized void addNeedle(Needle needle) throws IOException {
-
         writeNeedle(needle);
     }
-
 
     public void close() {
         try {

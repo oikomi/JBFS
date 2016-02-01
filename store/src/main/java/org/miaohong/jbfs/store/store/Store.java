@@ -109,7 +109,7 @@ public class Store {
         List<String> bufLines = new ArrayList<String>();
         try {
             bufLines = IOUtils.readLines(rfvf);
-            System.out.println(bufLines);
+            // System.out.println(bufLines);
             for (String bufLine : bufLines) {
                 String [] tmpList = Utils.splitStr(bufLine, StoreConst.SEPARATOR);
                 if (tmpList.length != 3) {
@@ -124,7 +124,7 @@ public class Store {
                 //freeVolumeId.incrementAndGet();
             }
 
-            System.out.println(freeVolumes);
+            // System.out.println(freeVolumes);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -181,7 +181,7 @@ public class Store {
 
 
     private void saveFreeVolumeIndex() throws IOException {
-        System.out.println("saveFreeVolumeIndex");
+        // System.out.println("saveFreeVolumeIndex");
 
         wfvf = new FileOutputStream(storeConfig.storeFreeVolumeIndex, false);
 //        for (Volume v : freeVolumes) {
@@ -269,11 +269,9 @@ public class Store {
         if (freeVolumes.size() == 0) {
             throw new StoreAdminException.StoreNoFreeVolumeException();
         }
-
         if (volumes.get(vid) != null) {
             throw new StoreAdminException.StoreVolumeExistException();
         }
-
         if (freeVolumes.get(vid) == null) {
             throw new StoreAdminException.StoreFreeVolumeNotExistException();
         }
