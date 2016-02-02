@@ -39,5 +39,10 @@
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.7" level="project" />
     <orderEntry type="library" name="Maven: org.apache.curator:curator-framework:2.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.curator:curator-client:2.9.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mybatis:mybatis-spring:1.2.3" level="project" />
+    <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.5.4" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.37" level="project" />
   </component>
 </module>

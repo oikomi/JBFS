@@ -23,6 +23,9 @@
         <spring-jdbc.version>4.2.3.RELEASE</spring-jdbc.version>
         <apache-curator.version>2.9.1</apache-curator.version>
         <apache-client.version>2.9.1</apache-client.version>
+        <mybatis.version>3.3.0</mybatis.version>
+        <mybatis-spring.version>1.2.3</mybatis-spring.version>
+
     </properties>
 
     <dependencies>
@@ -96,6 +99,30 @@
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-client</artifactId>
             <version>${apache-client.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.37</version>
         </dependency>
 
     </dependencies>
