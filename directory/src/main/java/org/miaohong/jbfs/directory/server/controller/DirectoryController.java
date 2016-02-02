@@ -23,4 +23,21 @@ public class DirectoryController {
 
 
     }
+
+
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    public void upload(@RequestParam("num") Integer num,
+                    HttpServletRequest req, HttpServletResponse resp) {
+
+
+
+    }
+
+    @RequestMapping(value = "/del", method = RequestMethod.POST)
+    public void del(@RequestParam("key") String key, @RequestParam("cookie") String cookie,
+                       HttpServletRequest req, HttpServletResponse resp) {
+
+
+
+    }
 }
