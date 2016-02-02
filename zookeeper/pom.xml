@@ -11,7 +11,6 @@
 
     <groupId>org.miaohong.jbfs.zookeeper</groupId>
     <version>1.0</version>
-
     <artifactId>zookeeper</artifactId>
 
     <dependencies>

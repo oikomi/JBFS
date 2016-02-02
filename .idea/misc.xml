@@ -42,6 +42,7 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/directory" />
     <file type="web" url="file://$PROJECT_DIR$/store" />
   </component>
   <component name="MavenProjectsManager">
