@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6160e83-6893-43b4-8f8b-85eb42f7097c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/config/DirectoryConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/exception/JbfsException.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/zk/ZkStoreData.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/zk/ZkStoreVolumeData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/resources/config/directory_config.properties" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/resources/config/springmvc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/web/WEB-INF/web.xml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/store/target/classes/org/miaohong/jbfs/store/store/ExceptionConst.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT/WEB-INF/classes/org/miaohong/jbfs/store/store/ExceptionConst.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT/WEB-INF/lib/curator-client-3.0.0.jar" afterPath="" />
@@ -44,6 +47,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java" afterPath="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/volume/Volume.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java" afterPath="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/directory.iml" afterPath="$PROJECT_DIR$/directory/directory.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/src/main/resources/config/directory_config.properties" afterPath="$PROJECT_DIR$/directory/src/main/resources/config/directory_config.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pitchfork/pitchfork.iml" afterPath="$PROJECT_DIR$/pitchfork/pitchfork.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zookeeper/pom.xml" afterPath="$PROJECT_DIR$/zookeeper/pom.xml" />
@@ -107,24 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SupperBlock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/SupperBlock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
-              <folding>
-                <element signature="e#997#1009#0" expanded="true" />
-                <element signature="e#1081#1096#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="StoreAdminException.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/exception/StoreAdminException.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
                 <element signature="e#955#956#0" expanded="true" />
                 <element signature="e#1023#1024#0" expanded="true" />
@@ -133,21 +124,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="springmvc.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/directory/src/main/resources/config/springmvc.xml">
+      <file leaf-file-name="DirectoryController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39473686">
-              <caret line="10" column="76" selection-start-line="10" selection-start-column="76" selection-end-line="10" selection-end-column="76" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Directory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JbfsException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/exception/JbfsException.java">
+      <file leaf-file-name="directory_config.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/directory/src/main/resources/config/directory_config.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DirectoryConfig.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/config/DirectoryConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7371007">
+              <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -157,7 +170,7 @@
         <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="69" column="36" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="36" />
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -251,6 +264,11 @@
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/SupperBlock.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Store.java" />
         <option value="$PROJECT_DIR$/directory/src/main/resources/config/springmvc.xml" />
+        <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java" />
+        <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java" />
+        <option value="$PROJECT_DIR$/directory/src/main/resources/config/directory_config.properties" />
+        <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/config/StoreConfig.java" />
+        <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/config/DirectoryConfig.java" />
       </list>
     </option>
   </component>
@@ -438,8 +456,34 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="store" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -462,6 +506,18 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="store" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -556,6 +612,78 @@
               <option name="myItemId" value="directory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -579,10 +707,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/directory" />
       <recent name="$PROJECT_DIR$/directory/src/main/resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.miaohong.jbfs.store.server.controller" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.miaohong.jbfs.directory.config" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.tomcat">
@@ -1124,12 +1256,12 @@
       <workItem from="1453873313686" duration="7288000" />
       <workItem from="1453883332897" duration="510000" />
       <workItem from="1453951761937" duration="17000" />
-      <workItem from="1453954905831" duration="27435000" />
+      <workItem from="1453954905831" duration="31136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153461000" />
+    <option name="totallyTimeSpent" value="157162000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1244" height="777" extended-state="6" />
@@ -1185,42 +1317,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/store/src/main/resources/config/store_config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/store/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/directory/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pitchfork/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/store/store.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/directory/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1591,16 +1687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="36" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/exception/JbfsException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1609,14 +1695,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/exception/StoreAdminException.java">
+    <entry file="file://$PROJECT_DIR$/directory/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-          <folding>
-            <element signature="e#955#956#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-          </folding>
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1624,6 +1707,61 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39473686">
           <caret line="10" column="76" selection-start-line="10" selection-start-column="76" selection-end-line="10" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/exception/StoreAdminException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#955#956#0" expanded="true" />
+            <element signature="e#1023#1024#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreAdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/directory/src/main/resources/config/directory_config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/config/DirectoryConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7371007">
+          <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
           <folding />
         </state>
       </provider>
