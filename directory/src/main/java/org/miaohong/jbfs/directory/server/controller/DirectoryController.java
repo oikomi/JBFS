@@ -1,5 +1,6 @@
 package org.miaohong.jbfs.directory.server.controller;
 
+import org.miaohong.jbfs.directory.directory.Directory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/directory/v1/op/")
 public class DirectoryController {
 
+    public static Directory directory;
+
+    static {
+        directory = Directory.getInstance();
+    }
+
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public void get(@RequestParam("key") String key, @RequestParam("cookie") String cookie,
                              HttpServletRequest req, HttpServletResponse resp) {
@@ -29,6 +36,7 @@ public class DirectoryController {
     public void upload(@RequestParam("num") Integer num,
                     HttpServletRequest req, HttpServletResponse resp) {
 
+        directory.getWritableStores(num);
 
 
     }
