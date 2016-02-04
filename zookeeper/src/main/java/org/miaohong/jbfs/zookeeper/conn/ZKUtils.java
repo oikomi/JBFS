@@ -1,6 +1,5 @@
 package org.miaohong.jbfs.zookeeper.conn;
 
-import com.sun.tools.javac.util.StringUtils;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
