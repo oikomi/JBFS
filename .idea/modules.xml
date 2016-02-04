@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/JBFS.iml" filepath="$PROJECT_DIR$/.idea/JBFS.iml" />
       <module fileurl="file://$PROJECT_DIR$/directory/directory.iml" filepath="$PROJECT_DIR$/directory/directory.iml" />
       <module fileurl="file://$PROJECT_DIR$/pitchfork/pitchfork.iml" filepath="$PROJECT_DIR$/pitchfork/pitchfork.iml" />
+      <module fileurl="file://$PROJECT_DIR$/snowflake/snowflake.iml" filepath="$PROJECT_DIR$/snowflake/snowflake.iml" />
       <module fileurl="file://$PROJECT_DIR$/store/store.iml" filepath="$PROJECT_DIR$/store/store.iml" />
       <module fileurl="file://$PROJECT_DIR$/zookeeper/zookeeper.iml" filepath="$PROJECT_DIR$/zookeeper/zookeeper.iml" />
     </modules>

@@ -13,6 +13,7 @@
         <module>directory</module>
         <module>pitchfork</module>
         <module>zookeeper</module>
+        <module>snowflake</module>
     </modules>
 
     <properties>

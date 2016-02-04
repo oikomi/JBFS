@@ -24,6 +24,7 @@
         <processorPath useClasspath="true" />
         <module name="directory" />
         <module name="pitchfork" />
+        <module name="snowflake" />
         <module name="store" />
         <module name="zookeeper" />
       </profile>
@@ -32,6 +33,7 @@
       <module name="directory" target="1.5" />
       <module name="JBFS" target="1.5" />
       <module name="pitchfork" target="1.5" />
+      <module name="snowflake" target="1.5" />
       <module name="store" target="1.5" />
       <module name="zookeeper" target="1.5" />
     </bytecodeTargetLevel>
