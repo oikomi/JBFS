@@ -1,6 +1,8 @@
 package org.miaohong.jbfs.directory.server.controller;
 
 import org.miaohong.jbfs.directory.directory.Directory;
+import org.miaohong.jbfs.directory.server.service.NeedleMetaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,28 +18,21 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping("/directory/v1/op/")
 public class DirectoryController {
-
-    public static Directory directory;
-
-    static {
-        directory = Directory.getInstance();
-    }
+    @Autowired
+    NeedleMetaService needleMetaService;
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public void get(@RequestParam("key") String key, @RequestParam("cookie") String cookie,
                              HttpServletRequest req, HttpServletResponse resp) {
 
 
-
     }
 
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public void upload(@RequestParam("num") Integer num,
-                    HttpServletRequest req, HttpServletResponse resp) {
+    public void upload(HttpServletRequest req, HttpServletResponse resp) {
 
-        directory.getWritableStores(num);
-
+        needleMetaService.uploadService();
 
     }
 

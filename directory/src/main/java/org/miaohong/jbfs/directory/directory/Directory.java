@@ -17,7 +17,9 @@ public class Directory {
         return SingletonHolder.INSTANCE;
     }
 
-    public void getWritableStores(Integer num) {
+    public void getWritableStores() {
+
+
     }
 
 }

@@ -1,0 +1,5 @@
+
+CREATE TABLE needle_meta(id int not null primary key auto_increment, `key` int(8), cookie int(4), vid int(4));
+
+
+create table needle_meta (id int,key int,cookie int,vid int,primary key(id));
