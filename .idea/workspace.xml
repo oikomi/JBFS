@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6160e83-6893-43b4-8f8b-85eb42f7097c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snowflake/src/main/java/org/miaohong/jbfs/snowflake/SnowFlake.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snowflake/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/target/classes/org/miaohong/jbfs/directory/directory/Directory.class" afterPath="$PROJECT_DIR$/directory/target/classes/org/miaohong/jbfs/directory/directory/Directory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/target/directory-1.0-SNAPSHOT/WEB-INF/classes/org/miaohong/jbfs/directory/directory/Directory.class" afterPath="$PROJECT_DIR$/directory/target/directory-1.0-SNAPSHOT/WEB-INF/classes/org/miaohong/jbfs/directory/directory/Directory.class" />
@@ -15,6 +16,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zookeeper/target/zookeeper-1.0.jar" afterPath="$PROJECT_DIR$/zookeeper/target/zookeeper-1.0.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java" afterPath="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/directory/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pitchfork/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pitchfork/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/store/target/maven-archiver/pom.properties" />
@@ -60,14 +64,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NeedleMetaService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NeedleMetaService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7002457">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SnowFlake.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/snowflake/src/main/java/org/miaohong/jbfs/snowflake/SnowFlake.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.11056511">
+              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,7 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/core/Store.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/Const.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Const.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/common/Utils.java" />
@@ -211,6 +224,7 @@
         <option value="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java" />
         <option value="$PROJECT_DIR$/snowflake/pom.xml" />
         <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java" />
+        <option value="$PROJECT_DIR$/snowflake/src/main/java/org/miaohong/jbfs/snowflake/SnowFlake.java" />
       </list>
     </option>
   </component>
@@ -331,7 +345,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="directory" />
+              <option name="myItemId" value="snowflake" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -345,7 +359,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="directory" />
+              <option name="myItemId" value="snowflake" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -363,29 +377,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="directory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JBFS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JBFS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="directory" />
+              <option name="myItemId" value="snowflake" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -396,22 +388,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="directory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -423,7 +399,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="directory" />
+              <option name="myItemId" value="snowflake" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -439,11 +415,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="snowflake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="directory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1057,12 +1083,12 @@
       <workItem from="1453951761937" duration="17000" />
       <workItem from="1453954905831" duration="32484000" />
       <workItem from="1454400582427" duration="7701000" />
-      <workItem from="1454487076597" duration="6215000" />
+      <workItem from="1454487076597" duration="7541000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172426000" />
+    <option name="totallyTimeSpent" value="173752000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1244" height="777" extended-state="6" />
@@ -1118,14 +1144,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/store/src/main/resources/config/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73264784">
-          <caret line="19" column="54" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/model/StoreAdminResp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21634616">
@@ -1515,11 +1533,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7002457">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snowflake/src/main/java/org/miaohong/jbfs/snowflake/SnowFlake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11056511">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
