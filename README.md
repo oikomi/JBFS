@@ -10,3 +10,4 @@ Todo
 - [ ] store support write cache (total num) for kernel 
 - [ ] store support compact volume
 - [ ] store support logic delete
+- [ ] directory fully load balancing
