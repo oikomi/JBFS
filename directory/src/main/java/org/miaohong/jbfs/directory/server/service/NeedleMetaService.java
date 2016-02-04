@@ -21,6 +21,8 @@ public class NeedleMetaService {
     NeedleMetaMapper dao;
 
     public void uploadService() {
+
+
         directory.getWritableStores();
     }
 

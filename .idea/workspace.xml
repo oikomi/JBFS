@@ -4,7 +4,7 @@
     <list default="true" id="d6160e83-6893-43b4-8f8b-85eb42f7097c" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/common/model/NeedleMeta.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/mapper/NeedleMetaMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/resources/dbconfig/mapper/NeedleMetaMapper.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/resources/log4j.properties" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/resources/dbconfig/table" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/target/classes/org/miaohong/jbfs/directory/directory/Directory.class" afterPath="$PROJECT_DIR$/directory/target/classes/org/miaohong/jbfs/directory/directory/Directory.class" />
@@ -19,6 +19,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zookeeper/target/zookeeper-1.0.jar" afterPath="$PROJECT_DIR$/zookeeper/target/zookeeper-1.0.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/directory/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pitchfork/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pitchfork/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/store/target/maven-archiver/pom.properties" />
@@ -50,11 +51,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DirectoryController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DirectoryController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23771791">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="80" selection-start-line="25" selection-start-column="80" selection-end-line="25" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,11 +67,21 @@
         <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#551#552#0" expanded="true" />
-                <element signature="e#596#597#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NeedleMetaMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/directory/src/main/resources/dbconfig/mapper/NeedleMetaMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.42789224">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <marker date="1454565594000" expanded="true" signature="743:787" placeholder="select * fro..needle_meta..." />
               </folding>
             </state>
           </provider>
@@ -144,7 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/StoreServer.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/core/Const.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/core/Store.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/block/Const.java" />
@@ -193,8 +203,9 @@
         <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java" />
         <option value="$PROJECT_DIR$/directory/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/mapper/NeedleMetaMapper.java" />
-        <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java" />
         <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java" />
+        <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java" />
+        <option value="$PROJECT_DIR$/directory/src/main/resources/dbconfig/mapper/NeedleMetaMapper.xml" />
       </list>
     </option>
   </component>
@@ -432,6 +443,70 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dbconfig" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dbconfig" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1193,12 +1268,12 @@
       <workItem from="1453951761937" duration="17000" />
       <workItem from="1453954905831" duration="32484000" />
       <workItem from="1454400582427" duration="7701000" />
-      <workItem from="1454487076597" duration="3417000" />
+      <workItem from="1454487076597" duration="4199000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169628000" />
+    <option name="totallyTimeSpent" value="170410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1244" height="777" extended-state="6" />
@@ -1254,13 +1329,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/model/StoreResp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6129808">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/common/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36057693">
@@ -1626,6 +1694,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="80" selection-start-line="25" selection-start-column="80" selection-end-line="25" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/mapper/NeedleMetaMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1634,24 +1722,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java">
+    <entry file="file://$PROJECT_DIR$/directory/src/main/resources/dbconfig/mapper/NeedleMetaMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.42789224">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#551#552#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23771791">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1454565594000" expanded="true" signature="743:787" placeholder="select * fro..needle_meta..." />
           </folding>
         </state>
       </provider>
