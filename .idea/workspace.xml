@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6160e83-6893-43b4-8f8b-85eb42f7097c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/target/classes/org/miaohong/jbfs/directory/server/service/NeedleMetaService.class" afterPath="$PROJECT_DIR$/directory/target/classes/org/miaohong/jbfs/directory/server/service/NeedleMetaService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/target/directory-1.0-SNAPSHOT/WEB-INF/classes/org/miaohong/jbfs/directory/server/service/NeedleMetaService.class" afterPath="$PROJECT_DIR$/directory/target/directory-1.0-SNAPSHOT/WEB-INF/classes/org/miaohong/jbfs/directory/server/service/NeedleMetaService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zookeeper/target/classes/org/miaohong/jbfs/zookeeper/conn/ZKUtils.class" afterPath="$PROJECT_DIR$/zookeeper/target/classes/org/miaohong/jbfs/zookeeper/conn/ZKUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/target/directory-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/directory/target/directory-1.0-SNAPSHOT.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pitchfork/target/pitchfork-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pitchfork/target/pitchfork-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/target/directory-1.0-SNAPSHOT/WEB-INF/lib/zookeeper-1.0.jar" afterPath="$PROJECT_DIR$/directory/target/directory-1.0-SNAPSHOT/WEB-INF/lib/zookeeper-1.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT/WEB-INF/lib/zookeeper-1.0.jar" afterPath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT/WEB-INF/lib/zookeeper-1.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zookeeper/target/zookeeper-1.0.jar" afterPath="$PROJECT_DIR$/zookeeper/target/zookeeper-1.0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java" afterPath="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/directory/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pitchfork/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pitchfork/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/store/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zookeeper/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/zookeeper/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snowflake/pom.xml" afterPath="$PROJECT_DIR$/snowflake/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snowflake/snowflake.iml" afterPath="$PROJECT_DIR$/snowflake/snowflake.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JBFS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,9 +75,24 @@
         <entry file="file://$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.07936508">
+              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
           </provider>
         </entry>
       </file>
@@ -84,10 +116,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/snowflake/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7002457">
+            <state vertical-scroll-proportion="0.0">
               <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
               <folding />
             </state>
@@ -162,7 +194,6 @@
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/needle/Const.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/needle/NeedleConst.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Utils.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKConn.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/server/controller/Test.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/needle/Needle.java" />
@@ -199,10 +230,11 @@
         <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/mapper/NeedleMetaMapper.java" />
         <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java" />
         <option value="$PROJECT_DIR$/directory/src/main/resources/dbconfig/mapper/NeedleMetaMapper.xml" />
-        <option value="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java" />
         <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java" />
         <option value="$PROJECT_DIR$/snowflake/src/main/java/org/miaohong/jbfs/snowflake/SnowFlake.java" />
         <option value="$PROJECT_DIR$/snowflake/pom.xml" />
+        <option value="$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -921,12 +953,12 @@
       <workItem from="1453951761937" duration="17000" />
       <workItem from="1453954905831" duration="32484000" />
       <workItem from="1454400582427" duration="7701000" />
-      <workItem from="1454487076597" duration="8230000" />
+      <workItem from="1454487076597" duration="8336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174441000" />
+    <option name="totallyTimeSpent" value="174547000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1244" height="777" extended-state="6" />
@@ -1022,16 +1054,6 @@
         <state vertical-scroll-proportion="0.23136246">
           <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0344827">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/zookeeper/zookeeper/3.4.6/zookeeper-3.4.6.jar!/org/apache/zookeeper/ZooKeeper.class">
@@ -1349,14 +1371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/mapper/NeedleMetaMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1383,10 +1397,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/snowflake/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7002457">
+        <state vertical-scroll-proportion="0.0">
           <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zookeeper/src/main/java/org/miaohong/jbfs/zookeeper/conn/ZKUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07936508">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
       </provider>
     </entry>
   </component>
