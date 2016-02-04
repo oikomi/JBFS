@@ -11,3 +11,7 @@ Todo
 - [ ] store support compact volume
 - [ ] store support logic delete
 - [ ] directory fully load balancing
+
+
+架构
+======
