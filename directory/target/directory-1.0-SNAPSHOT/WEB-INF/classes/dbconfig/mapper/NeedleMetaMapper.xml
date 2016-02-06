@@ -3,12 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.miaohong.jbfs.directory.server.mapper.NeedleMetaMapper">
-    <resultMap type="org.miaohong.jbfs.directory.common.model.NeedleMeta" id="needleMetaMap">
-        <result column="id" property="id"/>
-        <result column="key" property="key"/>
-        <result column="cookie" property="cookie"/>
-        <result column="vid" property="vid"/>
-    </resultMap>
+    <!--<resultMap type="org.miaohong.jbfs.directory.common.model.NeedleMeta" id="needleMetaMap">-->
+        <!--<result column="id" property="id"/>-->
+        <!--<result column="key" property="key"/>-->
+        <!--<result column="cookie" property="cookie"/>-->
+        <!--<result column="vid" property="vid"/>-->
+    <!--</resultMap>-->
 
 
     <select id="getNeedleByKey" parameterType="long" resultType="org.miaohong.jbfs.directory.common.model.NeedleMeta">
