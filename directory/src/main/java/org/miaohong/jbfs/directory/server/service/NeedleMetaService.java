@@ -25,6 +25,8 @@ public class NeedleMetaService {
 
         long key = 1;
         NeedleMeta needleMeta = needleMetaMapper.getNeedleByKey(key);
+
+        System.out.println(needleMeta);
         directory.getWritableStores();
     }
 
