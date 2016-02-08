@@ -10,9 +10,28 @@
           <element id="archive" name="zookeeper-1.0.jar">
             <element id="module-output" name="zookeeper" />
           </element>
-          <element id="archive" name="snowflake-1.0-SNAPSHOT.jar">
+          <element id="archive" name="snowflake-1.0.jar">
             <element id="module-output" name="snowflake" />
           </element>
+          <element id="library" level="project" name="Maven: org.redisson:redisson:2.2.7" />
+          <element id="library" level="project" name="Maven: io.netty:netty-common:4.0.34.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-codec:4.0.34.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-buffer:4.0.34.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-transport:4.0.34.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-handler:4.0.34.Final" />
+          <element id="library" level="project" name="Maven: io.projectreactor:reactor-stream:2.0.7.RELEASE" />
+          <element id="library" level="project" name="Maven: io.projectreactor:reactor-core:2.0.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.reactivestreams:reactive-streams:1.0.0" />
+          <element id="library" level="project" name="Maven: com.jayway.awaitility:awaitility:1.7.0" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-library:1.3" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Maven: cglib:cglib-nodep:3.1" />
+          <element id="library" level="project" name="Maven: org.objenesis:objenesis:2.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.6.5" />
+          <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.15" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.6.5" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.6.0" />
+          <element id="library" level="project" name="Maven: net.openhft:zero-allocation-hashing:0.5" />
           <element id="library" level="project" name="Maven: org.apache.curator:curator-framework:2.9.1" />
           <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper:3.4.6" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />

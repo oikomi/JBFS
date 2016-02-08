@@ -23,10 +23,10 @@ public class NeedleMetaService {
 
     public void uploadService() {
 
-        long key = 1;
-        NeedleMeta needleMeta = needleMetaMapper.getNeedleByKey(key);
-
-        System.out.println(needleMeta);
+//        long key = snowFlake;
+//        NeedleMeta needleMeta = needleMetaMapper.getNeedleByKey(key);
+//
+//        System.out.println(needleMeta);
         directory.getWritableStores();
     }
 
