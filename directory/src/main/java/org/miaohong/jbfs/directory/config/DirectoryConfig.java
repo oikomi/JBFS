@@ -22,6 +22,8 @@ public class DirectoryConfig {
     public static String zkStoreRoot;
     public static String zkVolumeRoot;
 
+    public static String redisAddr;
+
     private DirectoryConfig() {
 
     }
@@ -39,6 +41,8 @@ public class DirectoryConfig {
                     _instance.zkStoreRoot = (String) propertie.get(key);
                 } else if (key.equals("zk.volume.root")) {
                     _instance.zkVolumeRoot = (String) propertie.get(key);
+                } else if (key.equals("redis.addr")) {
+                    _instance.redisAddr = (String) propertie.get(key);
                 }
             }
         } catch (IOException e) {

@@ -10,6 +10,9 @@
           <element id="archive" name="zookeeper-1.0.jar">
             <element id="module-output" name="zookeeper" />
           </element>
+          <element id="archive" name="snowflake-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="snowflake" />
+          </element>
           <element id="library" level="project" name="Maven: org.apache.curator:curator-framework:2.9.1" />
           <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper:3.4.6" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />

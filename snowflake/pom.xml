@@ -9,14 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>org.miaohong.jbfs.snowflake</groupId>
     <artifactId>snowflake</artifactId>
+    <version>1.0</version>
 
     <dependencies>
-        <dependency>
-            <groupId>org.miaohong.jbfs.zookeeper</groupId>
-            <artifactId>zookeeper</artifactId>
-            <version>1.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.miaohong.jbfs.zookeeper</groupId>-->
+            <!--<artifactId>zookeeper</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.redisson</groupId>
