@@ -17,5 +17,11 @@
             <artifactId>zookeeper</artifactId>
             <version>1.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>2.2.7</version>
+        </dependency>
     </dependencies>
 </project>
