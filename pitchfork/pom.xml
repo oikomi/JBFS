@@ -11,5 +11,12 @@
 
     <artifactId>pitchfork</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.miaohong.jbfs.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 
 </project>

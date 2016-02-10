@@ -25,6 +25,9 @@ public class PitchforkConfig {
 
     public static String redisAddr;
 
+    public static String zookeeperAddrs;
+    public static int zookeeperTimeout;
+
     private PitchforkConfig() {
 
     }
@@ -46,6 +49,10 @@ public class PitchforkConfig {
                     _instance.zkPitchforkRoot = (String) propertie.get(key);
                 } else if (key.equals("redis.addr")) {
                     _instance.redisAddr = (String) propertie.get(key);
+                } else if (key.equals("zookeeper.addrs")) {
+                    _instance.zookeeperAddrs = (String) propertie.get(key);
+                } else if (key.equals("zookeeper.timeout")) {
+                    _instance.zookeeperTimeout = Integer.parseInt((String) propertie.get(key));
                 }
             }
         } catch (IOException e) {
