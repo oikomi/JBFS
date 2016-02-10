@@ -24,7 +24,7 @@ public class Directory {
     public void getWritableStores() {
         long key = snowFlake.getLongUUID();
 
-        System.out.println(key);
+        //System.out.println(key);
 
     }
 
