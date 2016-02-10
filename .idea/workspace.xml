@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d6160e83-6893-43b4-8f8b-85eb42f7097c" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Cookie.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/Dispatcher.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_3_1.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_6_0.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_6_5.xml" />
@@ -24,10 +23,10 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_redisson_redisson_2_2_7.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_14.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_15.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/server/Pitchfork.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/config/PitchforkConfig.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pitchfork/src/main/resources/config/pitchfork_config.properties" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/snowflake/target/snowflake-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/Dispatcher.java" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/dispatcher/Dispatcher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snowflake/target/classes/org/miaohong/jbfs/snowflake/SnowFlake.class" afterPath="$PROJECT_DIR$/snowflake/target/classes/org/miaohong/jbfs/snowflake/SnowFlake.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT/WEB-INF/lib/zookeeper-1.0.jar" afterPath="$PROJECT_DIR$/store/target/store-1.0-SNAPSHOT/WEB-INF/lib/zookeeper-1.0.jar" />
@@ -35,6 +34,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/config/DirectoryConfig.java" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/config/DirectoryConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java" afterPath="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/service/NeedleMetaService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/server/Pitchfork.java" afterPath="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/server/Pitchfork.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snowflake/src/main/java/org/miaohong/jbfs/snowflake/SnowFlake.java" afterPath="$PROJECT_DIR$/snowflake/src/main/java/org/miaohong/jbfs/snowflake/SnowFlake.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/directory.iml" afterPath="$PROJECT_DIR$/directory/directory.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/directory/src/main/resources/config/directory_config.properties" afterPath="$PROJECT_DIR$/directory/src/main/resources/config/directory_config.properties" />
@@ -73,32 +73,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pitchfork_config.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pitchfork/src/main/resources/config/pitchfork_config.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PitchforkConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/config/PitchforkConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Pitchfork.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/server/Pitchfork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.11056511">
-              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.33169532">
+              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Directory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="0" selection-start-line="9" selection-start-column="4" selection-end-line="10" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,7 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/store/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/needle/Const.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/needle/NeedleConst.java" />
         <option value="$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Utils.java" />
@@ -175,6 +166,7 @@
         <option value="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/config/DirectoryConfig.java" />
         <option value="$PROJECT_DIR$/pitchfork/src/main/resources/config/pitchfork_config.properties" />
         <option value="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/config/PitchforkConfig.java" />
+        <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/dispatcher/Dispatcher.java" />
         <option value="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/server/Pitchfork.java" />
       </list>
     </option>
@@ -363,14 +355,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -524,6 +508,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JBFS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -552,6 +570,7 @@
       <recent name="$PROJECT_DIR$/directory/src/main/resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.miaohong.jbfs.directory.dispatcher" />
       <recent name="org.miaohong.jbfs.directory.common.model" />
       <recent name="org.miaohong.jbfs.store.server.controller" />
     </key>
@@ -1124,12 +1143,12 @@
       <workItem from="1453954905831" duration="32484000" />
       <workItem from="1454400582427" duration="7701000" />
       <workItem from="1454487076597" duration="21374000" />
-      <workItem from="1454905945022" duration="4476000" />
+      <workItem from="1454905945022" duration="4725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192061000" />
+    <option name="totallyTimeSpent" value="192310000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1244" height="777" extended-state="6" />
@@ -1545,28 +1564,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/directory/src/main/resources/config/directory_config.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14742015">
           <caret line="4" column="10" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/Dispatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25798526">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1587,10 +1588,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/dispatcher/Dispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33169532">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/directory/Directory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="0" selection-start-line="9" selection-start-column="4" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/server/Pitchfork.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11056511">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.33169532">
+          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
           <folding />
         </state>
       </provider>
