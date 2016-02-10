@@ -19,6 +19,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <zookeeper.version>3.4.6</zookeeper.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <spring-webmvc.version>4.2.3.RELEASE</spring-webmvc.version>
         <spring-dao.version>2.0.8</spring-dao.version>
         <spring-jdbc.version>4.2.3.RELEASE</spring-jdbc.version>
@@ -39,7 +40,7 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <version>${javax.servlet-api.version}</version>
         </dependency>
 
         <dependency>

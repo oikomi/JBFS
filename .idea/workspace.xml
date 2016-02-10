@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6160e83-6893-43b4-8f8b-85eb42f7097c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/server/Pitchfork.java" afterPath="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/server/Pitchfork.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/config/PitchforkConfig.java" afterPath="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/config/PitchforkConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pitchfork/pitchfork.iml" afterPath="$PROJECT_DIR$/pitchfork/pitchfork.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pitchfork/src/main/resources/config/pitchfork_config.properties" afterPath="$PROJECT_DIR$/pitchfork/src/main/resources/config/pitchfork_config.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pitchfork/pom.xml" afterPath="$PROJECT_DIR$/pitchfork/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="JBFS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,21 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Store.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Store.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="98" column="108" selection-start-line="98" selection-start-column="43" selection-end-line="98" selection-end-column="108" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pitchfork.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Pitchfork.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/server/Pitchfork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.77395576">
-              <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,6 +47,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="21" column="40" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.85257983">
+              <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -120,7 +115,6 @@
         <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/server/controller/DirectoryController.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/store/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/directory/src/main/java/org/miaohong/jbfs/directory/common/model/NeedleMeta.java" />
         <option value="$PROJECT_DIR$/directory/src/main/resources/dbconfig/mapper/NeedleMetaMapper.xml" />
         <option value="$PROJECT_DIR$/directory/src/main/resources/config/springmvc.xml" />
@@ -140,6 +134,7 @@
         <option value="$PROJECT_DIR$/pitchfork/src/main/resources/config/pitchfork_config.properties" />
         <option value="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/config/PitchforkConfig.java" />
         <option value="$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/server/Pitchfork.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -1275,12 +1270,12 @@
       <workItem from="1453954905831" duration="32484000" />
       <workItem from="1454400582427" duration="7701000" />
       <workItem from="1454487076597" duration="21374000" />
-      <workItem from="1454905945022" duration="5666000" />
+      <workItem from="1454905945022" duration="6356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193251000" />
+    <option name="totallyTimeSpent" value="193941000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1244" height="777" extended-state="6" />
@@ -1565,14 +1560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.90172">
-          <caret line="133" column="21" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zookeeper/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1632,10 +1619,10 @@
         <state vertical-scroll-proportion="0.2948403">
           <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
           <folding>
-            <element signature="e#152#153#0" expanded="true" />
-            <element signature="e#206#207#0" expanded="true" />
-            <element signature="e#253#254#0" expanded="true" />
-            <element signature="e#312#313#0" expanded="true" />
+            <element signature="e#152#153#0" expanded="false" />
+            <element signature="e#206#207#0" expanded="false" />
+            <element signature="e#253#254#0" expanded="false" />
+            <element signature="e#312#313#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1722,14 +1709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/config/PitchforkConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="40" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/store/src/main/java/org/miaohong/jbfs/store/store/Store.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1738,13 +1717,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/config/PitchforkConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pitchfork/src/main/java/org/miaohong/jbfs/pitchfork/server/Pitchfork.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77395576">
-          <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85257983">
+          <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
