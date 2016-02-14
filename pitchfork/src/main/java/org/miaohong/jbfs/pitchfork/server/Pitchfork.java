@@ -6,12 +6,12 @@ import org.miaohong.jbfs.pitchfork.config.PitchforkConfig;
 import org.miaohong.jbfs.zookeeper.conn.ZKUtils;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by miaohong on 16/2/10.
  */
 public class Pitchfork {
-
     private PitchforkConfig pitchforkConfig = PitchforkConfig.getInstance();
 
     private ZKUtils zkUtils = null;
@@ -40,8 +40,21 @@ public class Pitchfork {
                 CreateMode.PERSISTENT);
     }
 
+    private void watchRacks() {
+        try {
+            List<String> tmp = zkUtils.watchedGetChildren(pitchforkConfig.zkStoreRoot);
+            System.out.println(tmp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void run() {
         init();
+
+        while (true) {
+            watchRacks();
+        }
 
     }
 

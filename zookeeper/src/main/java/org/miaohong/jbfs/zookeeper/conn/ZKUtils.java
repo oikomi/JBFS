@@ -117,5 +117,21 @@ public class ZKUtils {
     }
 
 
+    public List<String> watchedGetChildren(String path) throws Exception {
+        /**
+         * Get children and set a watcher on the node. The watcher notification
+         * will come through the CuratorListener (see setDataAsync() above).
+         */
+        return client.getChildren().watched().forPath(path);
+    }
+
+    public List<String> watchedGetChildren(String path, Watcher watcher) throws Exception {
+        /**
+         * Get children and set the given watcher on the node.
+         */
+        return client.getChildren().usingWatcher(watcher).forPath(path);
+    }
+
+
 
 }

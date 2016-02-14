@@ -15,7 +15,7 @@ public class PitchforkConfig {
     private static ClassLoader classLoader = PitchforkConfig.class.getClassLoader();
     private static Properties propertie = new Properties();
 
-    private static final String configFilePath = "config/directory_config.properties";
+    private static final String configFilePath = "config/pitchfork_config.properties";
 
     public static PitchforkConfig _instance = new PitchforkConfig();
 
