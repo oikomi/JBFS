@@ -38,6 +38,9 @@ public class Pitchfork {
 
         zkUtils.createNode(pitchforkConfig.zkPitchforkRoot, "".getBytes(), ZooDefs.Ids.CREATOR_ALL_ACL,
                 CreateMode.PERSISTENT);
+
+        zkUtils.createNode(pitchforkConfig.zkVolumeRoot, "".getBytes(), ZooDefs.Ids.CREATOR_ALL_ACL,
+                CreateMode.PERSISTENT);
     }
 
     private void watchRacks() {
