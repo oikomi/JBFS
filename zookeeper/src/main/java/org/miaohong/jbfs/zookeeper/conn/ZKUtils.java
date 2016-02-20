@@ -6,7 +6,11 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.api.BackgroundCallback;
 import org.apache.curator.framework.api.CuratorEvent;
 import org.apache.curator.framework.api.CuratorEventType;
+import org.apache.curator.framework.recipes.cache.PathChildrenCache;
+import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
+import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 import org.apache.curator.retry.ExponentialBackoffRetry;
+import org.apache.curator.utils.ZKPaths;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
@@ -31,7 +35,7 @@ public class ZKUtils {
 
     }
 
-    public static ZKUtils getZK(String host, int timeout) throws IOException {
+    public static ZKUtils getZK(String host, int timeout) {
 //        zk = new ZooKeeper(host, timeout, new Watcher() {
 //            public void process(WatchedEvent event) {
 //                System.out.println("已经触发了" + event.getType() + "事件！");
@@ -43,7 +47,7 @@ public class ZKUtils {
 //            e.printStackTrace();
 //        }
 
-        //System.out.println(zk.toString());
+        // System.out.println(zk.toString());
 
         RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
         //client = CuratorFrameworkFactory.newClient(host, retryPolicy);
@@ -61,7 +65,7 @@ public class ZKUtils {
 
     public void createNode(String path, byte[] data, ArrayList<ACL> acl,
                            CreateMode mode) {
-        //zk.create(path, data, acl, mode);
+        // zk.create(path, data, acl, mode);
         String[] pathList = path.split("/");
         String tmpPath = "";
 
@@ -116,6 +120,39 @@ public class ZKUtils {
         return null;
     }
 
+
+    public void watch(String path) {
+        PathChildrenCache cache = new PathChildrenCache(client, path, false);
+        try {
+            cache.start();
+            PathChildrenCacheListener plis = new PathChildrenCacheListener() {
+                public void childEvent(CuratorFramework client, PathChildrenCacheEvent event) throws Exception {
+                    switch (event.getType()) {
+                        case CHILD_ADDED: {
+                            System.out.println("Node added: " + ZKPaths.getNodeFromPath(event.getData().getPath()));
+                            break;
+                        }
+
+                        case CHILD_UPDATED: {
+                            System.out.println("Node changed: " + ZKPaths.getNodeFromPath(event.getData().getPath()));
+                            break;
+                        }
+
+                        case CHILD_REMOVED: {
+                            System.out.println("Node removed: " + ZKPaths.getNodeFromPath(event.getData().getPath()));
+                            break;
+                        }
+                    }
+
+                }
+            };
+            //注册监听
+            cache.getListenable().addListener(plis);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public List<String> watchedGetChildren(String path) throws Exception {
         /**
