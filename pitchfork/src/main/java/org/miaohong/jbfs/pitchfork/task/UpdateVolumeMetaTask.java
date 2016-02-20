@@ -13,6 +13,13 @@ public class UpdateVolumeMetaTask implements Callable {
     private PitchforkConfig pitchforkConfig = PitchforkConfig.getInstance();
     private ZKUtils zkUtils = ZKUtils.getZK(pitchforkConfig.zookeeperAddrs, pitchforkConfig.zookeeperTimeout);
 
+
+    private List<String> getVolume(String rack, String store) {
+        String volumePath = pitchforkConfig.zkStoreRoot + "/" + rack + "/" + store;
+
+        return zkUtils.getChild(volumePath);
+    }
+
     private List<String> getStores(String rack) {
         String storePath = pitchforkConfig.zkStoreRoot + "/" + rack;
 
@@ -42,8 +49,27 @@ public class UpdateVolumeMetaTask implements Callable {
             for (String store : stores) {
                 System.out.println(store);
 
+                List<String> volumes = getVolume(rack, store);
+
+                for (String volume : volumes) {
+                    System.out.println(volume);
+
+                    setVolumeState(volume);
+                }
+
             }
         }
+    }
+
+
+    private void getVolumeState(String volume) {
+        // String url = http://
+    }
+
+    private void setVolumeState(String volume) {
+        String volumePath = pitchforkConfig.zkVolumeRoot + "/" + volume;
+
+        getVolumeState(volume);
     }
 
     public Object call() throws Exception {
