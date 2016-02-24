@@ -4,11 +4,20 @@ package org.miaohong.jbfs.store.zk;
  * Created by miaohong on 16/1/28.
  */
 public class ZkStoreData {
+    private String state;
     private String admin;
     private String api;
     private String id;
     private String rack;
     private int status;
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 
     public String getAdmin() {
         return admin;
@@ -50,7 +59,8 @@ public class ZkStoreData {
         this.status = status;
     }
 
-    public ZkStoreData(String admin, String api, String id, String rack, int status) {
+    public ZkStoreData(String state, String admin, String api, String id, String rack, int status) {
+        this.state = state;
         this.admin = admin;
         this.api = api;
         this.id = id;

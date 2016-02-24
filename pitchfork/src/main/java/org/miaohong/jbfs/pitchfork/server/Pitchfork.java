@@ -3,11 +3,14 @@ package org.miaohong.jbfs.pitchfork.server;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs;
 import org.miaohong.jbfs.pitchfork.config.PitchforkConfig;
+import org.miaohong.jbfs.pitchfork.meta.StoreMeta;
 import org.miaohong.jbfs.pitchfork.task.UpdateVolumeMetaTask;
 import org.miaohong.jbfs.zookeeper.conn.ZKUtils;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -17,6 +20,7 @@ import java.util.concurrent.Executors;
 public class Pitchfork {
     private PitchforkConfig pitchforkConfig = PitchforkConfig.getInstance();
     private ZKUtils zkUtils = null;
+    private Map<String, StoreMeta> storeMetaMap = new HashMap<String, StoreMeta>();
 
     private ExecutorService threadPool = Executors.newFixedThreadPool(4);
 

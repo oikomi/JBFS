@@ -62,12 +62,7 @@ public class Store {
     }
 
     private void init() {
-        try {
-            zkUtils = ZKUtils.getZK(storeConfig.getZookeeperAddrs(), storeConfig.getZookeeperTimeout());
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(-1);
-        }
+        zkUtils = ZKUtils.getZK(storeConfig.getZookeeperAddrs(), storeConfig.getZookeeperTimeout());
 
         zkInit();
         try {
@@ -169,13 +164,12 @@ public class Store {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-
+            
         }
 
         // zk
 
         initZkVolumes();
-
     }
 
 
@@ -245,7 +239,7 @@ public class Store {
     }
 
     private void saveZkStoreData() {
-        ZkStoreData zkStoreData = new ZkStoreData(storeConfig.storeAdmin, storeConfig.storeApi,
+        ZkStoreData zkStoreData = new ZkStoreData(storeConfig.storeState, storeConfig.storeAdmin, storeConfig.storeApi,
                 storeConfig.storeServerId, storeConfig.storeRack, 0);
 
         zkUtils.setData(zkRootPath, JSON.toJSONString(zkStoreData).getBytes());

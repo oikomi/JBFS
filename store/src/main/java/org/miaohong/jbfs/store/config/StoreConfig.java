@@ -24,6 +24,7 @@ public class StoreConfig {
     public static String storeFreeVolumeIndex;
     public static String storeRack;
     public static String storeServerId;
+    public static String storeState;
     public static String storeAdmin;
     public static String storeApi;
 
@@ -91,6 +92,8 @@ public class StoreConfig {
                     _instance.storeRack = (String) propertie.get(key);
                 } else if (key.equals("store.server_id")) {
                     _instance.storeServerId = (String) propertie.get(key);
+                } else if (key.equals("store.state")) {
+                    _instance.storeState = (String) propertie.get(key);
                 } else if (key.equals("store.admin")) {
                     _instance.storeAdmin = (String) propertie.get(key);
                 } else if (key.equals("store.api")) {
