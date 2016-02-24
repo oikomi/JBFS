@@ -29,10 +29,19 @@ import java.util.concurrent.CountDownLatch;
 public class ZKUtils {
     private static ZKUtils zkUtils = new ZKUtils();
     private static ZooKeeper zk;
+
     private static CuratorFramework client;
 
     private ZKUtils() {
 
+    }
+
+    public static CuratorFramework getClient() {
+        return client;
+    }
+
+    public static void setClient(CuratorFramework client) {
+        ZKUtils.client = client;
     }
 
     public static ZKUtils getZK(String host, int timeout) {

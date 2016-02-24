@@ -67,4 +67,16 @@ public class StoreMeta {
         this.rack = rack;
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "StoreMeta{" +
+                "state='" + state + '\'' +
+                ", admin='" + admin + '\'' +
+                ", api='" + api + '\'' +
+                ", id='" + id + '\'' +
+                ", rack='" + rack + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

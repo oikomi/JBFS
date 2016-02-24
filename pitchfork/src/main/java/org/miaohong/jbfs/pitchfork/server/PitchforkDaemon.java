@@ -5,7 +5,6 @@ package org.miaohong.jbfs.pitchfork.server;
  */
 public class PitchforkDaemon {
 
-
     public static void main(String[] args) {
         Pitchfork pitchfork = Pitchfork.getInstance();
 

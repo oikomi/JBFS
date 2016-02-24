@@ -13,6 +13,9 @@ public class UpdateVolumeMetaTask implements Callable {
     private PitchforkConfig pitchforkConfig = PitchforkConfig.getInstance();
     private ZKUtils zkUtils = ZKUtils.getZK(pitchforkConfig.zookeeperAddrs, pitchforkConfig.zookeeperTimeout);
 
+    public UpdateVolumeMetaTask() {
+
+    }
 
     private List<String> getVolume(String rack, String store) {
         String volumePath = pitchforkConfig.zkStoreRoot + "/" + rack + "/" + store;
@@ -74,10 +77,11 @@ public class UpdateVolumeMetaTask implements Callable {
 
     public Object call() throws Exception {
 
-        while(true) {
-            Thread.sleep(1000);
+        //while(true) {
+         //   Thread.sleep(1000);
             watchStores();
-        }
+        //}
 
+        return null;
     }
 }
