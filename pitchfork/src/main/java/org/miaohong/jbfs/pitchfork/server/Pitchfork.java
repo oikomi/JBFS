@@ -115,11 +115,11 @@ public class Pitchfork {
         List<String> racks = watchRacks();
 
         for (String rack : racks) {
-            System.out.println(rack);
+            // System.out.println(rack);
             List<String> stores = getStores(rack);
 
             for (String store : stores) {
-                System.out.println(store);
+                // System.out.println(store);
 
                 List<String> volumes = getVolume(rack, store);
 
@@ -128,7 +128,6 @@ public class Pitchfork {
 
                     setVolumeState(volume);
                 }
-
             }
         }
     }
